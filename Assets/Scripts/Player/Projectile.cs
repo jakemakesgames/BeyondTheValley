@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour {
 
 	void Update(){
 		// Move the Projectile towards the cursor
-		transform.position = Vector2.MoveTowards(transform.position, target + 100f, speed * Time.deltaTime);
+		transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
 	}
 
