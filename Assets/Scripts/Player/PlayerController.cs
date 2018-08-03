@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour {
 
 	// Components
 	private Rigidbody2D rb2D;
-
 	public XboxController controller;
 
 	[Header("Movement Speed Variables")]
@@ -18,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 	// Keyboard Variables
 	private Vector2 moveVelocity;
 
-	// Gamepad Variables
+	[Header("Gamepad Variables")] // Gamepad Variables
 	private Vector2 moveVelocityAlt;
 	// Gamepad Detection
 	private int gamepad = 0;
@@ -30,6 +29,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update(){
+
+		#region MOVEMENT
 
 		#region Gamepad Detection
 		string[] names = Input.GetJoystickNames();
@@ -65,9 +66,13 @@ public class PlayerController : MonoBehaviour {
 			moveVelocity = moveInput.normalized * movementSpeed;
 			#endregion
 		}
+
+		#endregion
 	}
 
 	void FixedUpdate(){
+
+		#region MOVEMENT PHYSICS
 
 		if (usingGamepad) {
 			// Gamepad Move Player
@@ -76,5 +81,7 @@ public class PlayerController : MonoBehaviour {
 			// Keyboard Move Player
 			rb2D.MovePosition (rb2D.position + moveVelocity * Time.fixedDeltaTime);
 		}
+
+		#endregion
 	}
 }
