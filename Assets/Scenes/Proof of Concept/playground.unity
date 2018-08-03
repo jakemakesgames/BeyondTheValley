@@ -203,7 +203,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1102264169}
   - component: {fileID: 1102264170}
-  - component: {fileID: 1102264171}
   - component: {fileID: 1102264168}
   m_Layer: 0
   m_Name: Player
@@ -262,17 +261,6 @@ MonoBehaviour:
   movementSpeed: 40
   maxSpeed: 5
   usingGamepad: 0
---- !u!114 &1102264171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1102264167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c560a6370d22704ea52b8c7444766a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   shot: {fileID: 1291383763489818, guid: e3de8ab2232ad4a419760c425ac017a5, type: 2}
   playerPos: {fileID: 0}
   shootingTimer: 0
