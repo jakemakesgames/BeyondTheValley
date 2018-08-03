@@ -23,9 +23,25 @@ public class PlayerController : MonoBehaviour {
 	private int gamepad = 0;
 	public bool usingGamepad;
 
+	[Header("Ranged Attack Variables")]
+	public GameObject shot;
+	[SerializeField] private Transform playerPos;
+
+	// Shooting Variables
+	[SerializeField] private float shootingTimer;
+	public float timeBetweenShots;
+
+	// The position in which the projectile is instantiated
+	public GameObject shotPos;
+
 	void Start(){
 		// The rb2D varible is set the to Rigidbody 2D component on the Player GameObject
 		rb2D = GetComponent<Rigidbody2D> ();
+
+		// Setting Ranged Attack Variables
+		playerPos = GetComponent<Transform> ();
+		shootingTimer = Time.time;
+		shotPos = GameObject.FindGameObjectWithTag ("shotPos");
 	}
 
 	void Update(){
@@ -57,6 +73,20 @@ public class PlayerController : MonoBehaviour {
 			Vector2 moveInputAlt = new Vector2 (XCI.GetAxis (XboxAxis.LeftStickX), XCI.GetAxis (XboxAxis.LeftStickY));
 			moveVelocityAlt = moveInputAlt.normalized * movementSpeed;
 			#endregion
+
+			#region Gamepad Ranged Attack
+			// If the A button is being held down (Do the thing)
+			if (XCI.GetButton(XboxButton.A)){
+				// If Time.time minus the shootingTimer variable is GREATER THAN the timeBetweenShots varibale
+				if (Time.time - shootingTimer > timeBetweenShots) {
+					// Call the Shoot function
+					Shoot();
+					// Reset the shooting timer
+					shootingTimer = Time.time;
+				}
+			}
+			#endregion
+
 		} else {
 			#region Keyboard Input
 			// The moveInput Vector2 is equal to a new Vector2 - The Horizontal Axis (for X axis movement), and The Vertical Axis (for Y axis movement)
@@ -64,6 +94,19 @@ public class PlayerController : MonoBehaviour {
 			Vector2 moveInput = new Vector2 (Input.GetAxisRaw ("Hori"), Input.GetAxisRaw ("Vert"));
 			// Set the moveVelocity equal to the moveInput multiplied by the movementSpeed variable (Normalized so the speed is the same in all directions)
 			moveVelocity = moveInput.normalized * movementSpeed;
+			#endregion
+
+			#region Mouse Ranged Attack
+			// If the left mouse button is clicked (Do the thing)
+			if (Input.GetMouseButton(0)){
+				// If Time.time minus the shootingTimer variable is GREATER THAN the timeBetweenShots varibale
+				if (Time.time - shootingTimer > timeBetweenShots) {
+					// Call the Shoot function
+					Shoot();
+					// Reset the shooting timer
+					shootingTimer = Time.time;
+				}
+			}
 			#endregion
 		}
 
@@ -84,4 +127,10 @@ public class PlayerController : MonoBehaviour {
 
 		#endregion
 	}
+
+	void Shoot(){
+		// Instantiate the shot gameObject from the shot position
+		Instantiate (shot, shotPos.transform.position, Quaternion.identity);
+	}
+
 }
