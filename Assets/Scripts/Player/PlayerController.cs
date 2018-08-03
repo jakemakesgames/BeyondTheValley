@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour {
 	public bool usingGamepad;
 
 	[Header("Ranged Attack Variables")]
+
+	private Vector3 target;
+
 	public GameObject shot;
 	[SerializeField] private Transform playerPos;
 
@@ -35,6 +38,9 @@ public class PlayerController : MonoBehaviour {
 	public GameObject shotPos;
 
 	void Start(){
+
+		target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+
 		// The rb2D varible is set the to Rigidbody 2D component on the Player GameObject
 		rb2D = GetComponent<Rigidbody2D> ();
 

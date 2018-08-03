@@ -24,6 +24,4 @@ public class Projectile : MonoBehaviour {
 		transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
 	}
-
-
 }
