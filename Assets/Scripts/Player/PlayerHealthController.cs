@@ -45,7 +45,8 @@ public class PlayerHealthController : MonoBehaviour {
 		#endregion
 	}
 
-	public void GainHealth(){
+	public void GainHealth(int healthGained){
+		health += healthGained;
 	}
 
 	public void HurtPlayer(int damageToDeal){

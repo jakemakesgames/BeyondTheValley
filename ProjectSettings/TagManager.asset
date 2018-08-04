@@ -7,6 +7,7 @@ TagManager:
   - shotPos
   - Cursor
   - Enemy
+  - Health
   layers:
   - Default
   - TransparentFX
