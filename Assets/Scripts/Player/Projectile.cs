@@ -14,8 +14,6 @@ public class Projectile : MonoBehaviour {
 	// The score amount the player recieves when the projectile collides with an enemy
 	public int scoreAmount;
 
-	private Vector3 direction;
-
 	private bool canDestroy;
 
 	[SerializeField] private GameObject targetAlt;
@@ -30,19 +28,26 @@ public class Projectile : MonoBehaviour {
 		if (playerController.usingGamepad) {
 			// Change the target pos to crosshair
 			target = targetAlt.transform.position;
+			canDestroy = true;
 		} else {
 			target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			canDestroy = true;
 		}
 	}
 
-	public void Fire(Vector3 directionToShoot){
-		direction = directionToShoot;
-	}
 
 	void Update(){
 		// Move the Projectile towards the cursor
 		transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+		if (transform.position.x == target.x && transform.position.y == target.y) {
+			if (canDestroy) {
+				DestroyProjectile ();
+			}
+		}
+	}
 
+	void DestroyProjectile(){
+		canDestroy = false;
+		Destroy (gameObject, 0.1f);
 	}
 }
