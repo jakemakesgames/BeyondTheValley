@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour {
 	// The score amount the player recieves when the projectile collides with an enemy
 	public int scoreAmount;
 
+	private Vector3 direction;
+
 	private bool canDestroy;
 
 	[SerializeField] private GameObject targetAlt;
@@ -32,8 +34,10 @@ public class Projectile : MonoBehaviour {
 			target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			canDestroy = true;
 		}
+	}
 
-
+	public void Fire(Vector3 directionToShoot){
+		direction = directionToShoot;
 	}
 
 	void Update(){
