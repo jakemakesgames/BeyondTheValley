@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour {
 			#endregion
 
 			#region Gamepad Ranged Attack
-			// If the A button is being held down (Do the thing)
+			// If the Right Trigger is being held down (Do the thing)
 			if (XCI.GetAxis(XboxAxis.RightTrigger) > 0.1f){
 				// If Time.time minus the shootingTimer variable is GREATER THAN the timeBetweenShots varibale
 				if (Time.time - shootingTimer > timeBetweenShots) {
