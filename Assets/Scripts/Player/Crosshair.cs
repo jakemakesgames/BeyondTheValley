@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XboxCtrlrInput;
 
-public class Cursor : MonoBehaviour {
+public class Crosshair : MonoBehaviour {
 
 	[SerializeField] private PlayerController playerController;
 	public GameObject cursor;
@@ -12,6 +12,9 @@ public class Cursor : MonoBehaviour {
 	private Rigidbody2D rb2D;
 
 	void Start(){
+
+		Cursor.visible = false;
+
 		rb2D = GetComponent<Rigidbody2D> ();
 		playerController = FindObjectOfType<PlayerController> ();
 	}
