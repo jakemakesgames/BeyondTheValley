@@ -6,6 +6,7 @@ TagManager:
   tags:
   - shotPos
   - Cursor
+  - Enemy
   layers:
   - Default
   - TransparentFX

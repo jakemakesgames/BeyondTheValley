@@ -45,4 +45,16 @@ public class PlayerHealthController : MonoBehaviour {
 		#endregion
 	}
 
+	public void HurtPlayer(int damageToDeal){
+		health -= damageToDeal;
+
+		if (health <= 0) {
+			Die ();
+		}
+	}
+
+	void Die(){
+		Debug.Log ("You Died!");
+	}
+
 }
