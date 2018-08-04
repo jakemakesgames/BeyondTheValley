@@ -45,10 +45,14 @@ public class PlayerHealthController : MonoBehaviour {
 		#endregion
 	}
 
+	public void GainHealth(){
+	}
+
 	public void HurtPlayer(int damageToDeal){
 		health -= damageToDeal;
 
 		if (health <= 0) {
+			health = 0;
 			Die ();
 		}
 	}
