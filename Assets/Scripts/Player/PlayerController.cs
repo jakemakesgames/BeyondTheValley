@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 	private int gamepad = 0;
 	public bool usingGamepad;
 
+
 	[Header("Ranged Attack Variables")]
 
 	private Vector3 target;
@@ -39,8 +40,6 @@ public class PlayerController : MonoBehaviour {
 
 	void Start(){
 
-		target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-
 		// The rb2D varible is set the to Rigidbody 2D component on the Player GameObject
 		rb2D = GetComponent<Rigidbody2D> ();
 
@@ -48,6 +47,7 @@ public class PlayerController : MonoBehaviour {
 		playerPos = GetComponent<Transform> ();
 		shootingTimer = Time.time;
 		shotPos = GameObject.FindGameObjectWithTag ("shotPos");
+
 	}
 
 	void Update(){
@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour {
 					shootingTimer = Time.time;
 				}
 			}
+
 			#endregion
 
 		} else {

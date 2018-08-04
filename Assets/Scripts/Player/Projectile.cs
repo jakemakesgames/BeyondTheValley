@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
+	[SerializeField] private PlayerController playerController;
+
 	private Vector2 target;
 	// The movement speed of the projectile
 	public float speed;
@@ -14,9 +16,24 @@ public class Projectile : MonoBehaviour {
 
 	private bool canDestroy;
 
+	[SerializeField] private GameObject targetAlt;
+
 	void Start(){
-		target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		canDestroy = true;
+
+		// Find reference to the player Controller script on the player
+		playerController = FindObjectOfType<PlayerController> ();
+
+		targetAlt = GameObject.FindGameObjectWithTag ("Cursor");
+
+		if (playerController.usingGamepad) {
+			// Change the target pos to crosshair
+			target = targetAlt.transform.position;
+		} else {
+			target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+			canDestroy = true;
+		}
+
+
 	}
 
 	void Update(){
