@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class HealthPickup : MonoBehaviour {
 
+	PlayerHealthController playerHealthController;
 	public int healthGained;
 
-	public void OnTriggerEnter2D (Collider2D other){
+	void Awake(){
+		// Getting a reference to the Player Health Controller variable
+		playerHealthController = FindObjectOfType<PlayerHealthController> ();
+	}
+
+	void OnTriggerEnter2D (Collider2D other){
+		// If the object collided has a tag "Play" -> Do the thing
 		if (other.tag == "Player") {
-			other.gameObject.GetComponent<PlayerHealthController> ().GainHealth (healthGained);
-			Destroy (this.gameObject);
+			// Check if the player's health is less that the number of hearts, if true
+			if (playerHealthController.health < playerHealthController.numberOfHearts) {
+				// Add the healthGained int to the player's health
+				playerHealthController.GainHealth (healthGained);
+				// Destroy this game object
+				Destroy (gameObject);
+			}
 		}
 	}
 }

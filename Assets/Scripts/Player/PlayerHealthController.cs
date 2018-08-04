@@ -44,9 +44,12 @@ public class PlayerHealthController : MonoBehaviour {
 		}
 		#endregion
 	}
-
+		
 	public void GainHealth(int healthGained){
-		health += healthGained;
+		if (health < numberOfHearts) {
+			health += healthGained;
+		}
+
 	}
 
 	public void HurtPlayer(int damageToDeal){
