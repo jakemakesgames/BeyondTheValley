@@ -145,7 +145,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   cursor: {fileID: 332104287}
   moveVel: {x: 0, y: 0}
-  movementSpeed: 50
+  movementSpeed: 60
 --- !u!212 &332104289
 SpriteRenderer:
   m_ObjectHideFlags: 0
