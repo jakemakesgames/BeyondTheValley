@@ -24,8 +24,6 @@ public class EnemyScriptable : ScriptableObject {
 	// How many points the Player scores when they kill the Enemy
 	public int enemyScoreValue;
 
-	// Worry about Item Drops later
-
-
-
+	// Worry about Item Drops later	
+	public bool enemyCanDropItem;
 }

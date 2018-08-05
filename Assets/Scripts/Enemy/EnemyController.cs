@@ -10,10 +10,13 @@ public class EnemyController : MonoBehaviour {
 	[SerializeField] private type enemyType;
 	public int health;
 
+	public bool canDropItem;
+
 	void Start(){
 		// Call the EnemyTypeCheck function
 		EnemyTypeCheck ();
 		health = eS.enemyHealth;
+		canDropItem = eS.enemyCanDropItem;
 	}
 
 	// This Function serves the purpose of checking which type this enemy is - this will set the variable values and type specific parameters

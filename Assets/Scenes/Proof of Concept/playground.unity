@@ -1251,6 +1251,7 @@ GameObject:
   - component: {fileID: 1936078393}
   - component: {fileID: 1936078391}
   - component: {fileID: 1936078390}
+  - component: {fileID: 1936078392}
   m_Layer: 0
   m_Name: Hazard
   m_TagString: Enemy
@@ -1295,6 +1296,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.9432373, y: 5.9559135}
   m_EdgeRadius: 0
+--- !u!114 &1936078392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1936078389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be15ee64abf9b3846898e1a023a65e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eS: {fileID: 11400000, guid: 603776fc5eeb32345b5ea0dac56ffae4, type: 2}
+  enemyType: 0
+  health: 0
 --- !u!4 &1936078393
 Transform:
   m_ObjectHideFlags: 0
