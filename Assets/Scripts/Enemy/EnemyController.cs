@@ -8,14 +8,14 @@ public class EnemyController : MonoBehaviour {
 
 	[SerializeField] private enum type{ neutral, ranged, aggressive };
 	[SerializeField] private type enemyType;
-	public int health;
+	//public int health;
 
 	public bool canDropItem;
 
 	void Start(){
 		// Call the EnemyTypeCheck function
 		EnemyTypeCheck ();
-		health = eS.enemyHealth;
+		//health = eS.enemyHealth;
 		canDropItem = eS.enemyCanDropItem;
 	}
 
