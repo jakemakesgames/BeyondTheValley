@@ -14,6 +14,7 @@ MonoBehaviour:
   enemySprite: {fileID: 0}
   enemyHealth: 2
   enemyDamageAmount: 1
-  enemyMovementSpeed: 0
-  enemyMoveRange: 0
+  enemyMovementSpeed: 10
+  enemyMoveRange: 20
   enemyScoreValue: 2
+  enemyCanDropItem: 0
