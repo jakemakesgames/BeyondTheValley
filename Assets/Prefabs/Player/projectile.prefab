@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
   speed: 50
-  damageAmount: 0
+  damageAmount: 1
   scoreAmount: 0
   targetAlt: {fileID: 0}
 --- !u!212 &212404288047295766

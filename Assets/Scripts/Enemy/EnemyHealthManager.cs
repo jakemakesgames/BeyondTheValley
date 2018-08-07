@@ -18,11 +18,8 @@ public class EnemyHealthManager : MonoBehaviour {
 
 	void Start(){
 
-
-
 		// Setting the health variable to the enemy scriptable health value attached to this GameObject
 		//health = enemyController.health;
-
 	}
 
 	private void Update()
@@ -32,6 +29,15 @@ public class EnemyHealthManager : MonoBehaviour {
 			health = 0;
 			// Call the EnemyDie function
 			EnemyDie();
+		}
+	}
+
+	public void TakeDamage (int damageToDeal){
+		health -= damageToDeal;
+
+		if (health <= 0) {
+			health = 0;
+			EnemyDie ();
 		}
 	}
 
