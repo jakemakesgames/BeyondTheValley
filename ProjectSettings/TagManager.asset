@@ -8,6 +8,7 @@ TagManager:
   - Cursor
   - Enemy
   - Health
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
