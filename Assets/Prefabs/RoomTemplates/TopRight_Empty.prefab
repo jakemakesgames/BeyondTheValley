@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4381495183696560}
   - component: {fileID: 61592525085996940}
   - component: {fileID: 50906110636380832}
+  - component: {fileID: 114916366870384364}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: SpawnPoint
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4876597430162916}
   - component: {fileID: 61797385948590530}
   - component: {fileID: 50254024498312562}
+  - component: {fileID: 114813390591828346}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: SpawnPoint
@@ -109,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860495941364582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 237, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4051657680665548}
@@ -221,6 +223,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114813390591828346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1754737473057894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4a8bb53d1390e47beb34be73b4a397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDirection: 1
+--- !u!114 &114916366870384364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1378708174670776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4a8bb53d1390e47beb34be73b4a397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openingDirection: 3
 --- !u!212 &212943459828669230
 SpriteRenderer:
   m_ObjectHideFlags: 1

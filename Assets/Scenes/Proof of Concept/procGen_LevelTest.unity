@@ -152,77 +152,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4534360249950852, guid: f9900dc37b509384a9c4ead61c7fc19b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4362895177805312, guid: f9900dc37b509384a9c4ead61c7fc19b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9900dc37b509384a9c4ead61c7fc19b, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &751657263 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1519282454165040, guid: f9900dc37b509384a9c4ead61c7fc19b,
-    type: 2}
-  m_PrefabInternal: {fileID: 751657262}
---- !u!1 &751657264 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1474824516193322, guid: f9900dc37b509384a9c4ead61c7fc19b,
-    type: 2}
-  m_PrefabInternal: {fileID: 751657262}
---- !u!1 &751657265 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1267256356730582, guid: f9900dc37b509384a9c4ead61c7fc19b,
-    type: 2}
-  m_PrefabInternal: {fileID: 751657262}
---- !u!1 &751657266 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1032100960314702, guid: f9900dc37b509384a9c4ead61c7fc19b,
-    type: 2}
-  m_PrefabInternal: {fileID: 751657262}
---- !u!114 &751657267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 751657263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b4a8bb53d1390e47beb34be73b4a397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openingDirection: 4
---- !u!114 &751657268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 751657264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b4a8bb53d1390e47beb34be73b4a397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openingDirection: 3
---- !u!114 &751657269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 751657265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b4a8bb53d1390e47beb34be73b4a397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openingDirection: 2
---- !u!114 &751657270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 751657266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b4a8bb53d1390e47beb34be73b4a397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openingDirection: 1
 --- !u!1 &1681752517
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +255,7 @@ GameObject:
   - component: {fileID: 1848622081}
   m_Layer: 0
   m_Name: RoomTemplates
-  m_TagString: Untagged
+  m_TagString: Rooms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,6 +271,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ab566277d39884aa8ea6bc77c4942b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bottomRooms:
+  - {fileID: 1353981073612484, guid: a36b6f9f1b50ebe4b94fdedf0224ee5c, type: 2}
+  - {fileID: 1402963496445500, guid: 2ddd2b3abe4712d428614a1a538d1217, type: 2}
+  - {fileID: 1915400396111970, guid: 89f9042283ed1084a974e95c0a7bb95a, type: 2}
+  topRooms:
+  - {fileID: 1017453091129528, guid: 323b8eb6567452544a57104c9e83487f, type: 2}
+  - {fileID: 1949609919391984, guid: 0e9e08ac9bcba0f45be15307e4950f0e, type: 2}
+  - {fileID: 1915400396111970, guid: 89f9042283ed1084a974e95c0a7bb95a, type: 2}
+  - {fileID: 1860495941364582, guid: 04d994b19194e0f4a9c68a58ec693073, type: 2}
+  leftRooms:
+  - {fileID: 1497204782984658, guid: a1917d73f785d8645b57435a7bba5406, type: 2}
+  - {fileID: 1630196387070822, guid: 63a8b5a413ee5fa41a6c4fe6f5ea6210, type: 2}
+  - {fileID: 1017453091129528, guid: 323b8eb6567452544a57104c9e83487f, type: 2}
+  rightRooms:
+  - {fileID: 1240458411972882, guid: c4ea67d869e83474cb0b7405fde732d2, type: 2}
+  - {fileID: 1402963496445500, guid: 2ddd2b3abe4712d428614a1a538d1217, type: 2}
+  - {fileID: 1860495941364582, guid: 04d994b19194e0f4a9c68a58ec693073, type: 2}
+  - {fileID: 1630196387070822, guid: 63a8b5a413ee5fa41a6c4fe6f5ea6210, type: 2}
 --- !u!4 &1848622082
 Transform:
   m_ObjectHideFlags: 0
