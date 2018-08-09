@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class RoomTemplates : MonoBehaviour {
 
-	public GameObject[] bottomRooms;
-	public GameObject[] topRooms;
-	public GameObject[] leftRooms;
-	public GameObject[] rightRooms;
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }

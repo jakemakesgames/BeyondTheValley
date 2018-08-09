@@ -9,7 +9,6 @@ TagManager:
   - Enemy
   - Health
   - SpawnPoint
-  - Rooms
   layers:
   - Default
   - TransparentFX
