@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour {
 
 		#region MOVEMENT
 
+		/*
 		#region Gamepad Detection
 		string[] names = Input.GetJoystickNames();
 		for (int i = 0; i < names.Length; i++) {
@@ -73,6 +74,8 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		#endregion
+		*/
+
 
 		if (usingGamepad) {
 			#region Gamepad Input
@@ -80,19 +83,21 @@ public class PlayerController : MonoBehaviour {
 			moveVelocityAlt = moveInputAlt.normalized * movementSpeed;
 			#endregion
 
+			/*
 			#region Gamepad Ranged Attack
 			// If the Right Trigger is being held down (Do the thing)
 			if (XCI.GetAxis(XboxAxis.RightTrigger) > 0.1f){
 				// If Time.time minus the shootingTimer variable is GREATER THAN the timeBetweenShots varibale
 				if (Time.time - shootingTimer > timeBetweenShots) {
 					// Call the Shoot function
-					Shoot();
+					//Shoot();
 					// Reset the shooting timer
 					shootingTimer = Time.time;
 				}
 			}
 
 			#endregion
+			*/
 
 		} else {
 			#region Keyboard Input
@@ -103,7 +108,10 @@ public class PlayerController : MonoBehaviour {
 			moveVelocity = moveInput.normalized * movementSpeed;
 			#endregion
 
+			// Old code using the mouse to shoot
+			/*
 			#region Mouse Ranged Attack
+
 			// If the left mouse button is clicked (Do the thing)
 			if (Input.GetMouseButton(0)){
 				// If Time.time minus the shootingTimer variable is GREATER THAN the timeBetweenShots varibale
@@ -115,6 +123,7 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 			#endregion
+			*/
 		}
 
 		#endregion
@@ -133,11 +142,6 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		#endregion
-	}
-
-	void Shoot(){
-		// Instantiate the shot gameObject from the shot position
-		Instantiate (shot, shotPos.transform.position, Quaternion.identity);
 	}
 
 }
