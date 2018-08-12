@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
+	/*
+	#region OLD CODE
 	[SerializeField] private PlayerController playerController;
 
 	private Vector2 target;
@@ -48,6 +50,23 @@ public class Projectile : MonoBehaviour {
 
 	void DestroyProjectile(){
 		canDestroy = false;
+		Destroy (gameObject, 0.1f);
+	}
+	#endregion
+	*/
+
+	public int damageAmount;
+
+	[SerializeField] private float moveSpeed;
+
+	void Update(){
+		// When the projectile is instantaited, move the object by the moveSpeed variable multiplied by Time.deltaTime
+		transform.position += transform.up * moveSpeed * Time.deltaTime;
+		Destroy (gameObject, 5f);
+	}
+
+
+	void DestroyProjectile(){
 		Destroy (gameObject, 0.1f);
 	}
 

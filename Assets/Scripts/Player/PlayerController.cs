@@ -25,10 +25,11 @@ public class PlayerController : MonoBehaviour {
 
 
 	[Header("Ranged Attack Variables")]
+	public GameObject projectileOBJ;
 
+	/*
 	private Vector3 target;
 
-	public GameObject shot;
 	[SerializeField] private Transform playerPos;
 
 	// Shooting Variables
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour {
 	public float timeBetweenShots;
 
 	// The position in which the projectile is instantiated
-	public GameObject shotPos;
+	public GameObject shotPos;*/
 
 	void Start(){
 
@@ -44,9 +45,9 @@ public class PlayerController : MonoBehaviour {
 		rb2D = GetComponent<Rigidbody2D> ();
 
 		// Setting Ranged Attack Variables
-		playerPos = GetComponent<Transform> ();
-		shootingTimer = Time.time;
-		shotPos = GameObject.FindGameObjectWithTag ("shotPos");
+		//playerPos = GetComponent<Transform> ();
+		//shootingTimer = Time.time;
+		//shotPos = GameObject.FindGameObjectWithTag ("shotPos");
 
 	}
 
@@ -106,6 +107,32 @@ public class PlayerController : MonoBehaviour {
 			Vector2 moveInput = new Vector2 (Input.GetAxisRaw ("Hori"), Input.GetAxisRaw ("Vert"));
 			// Set the moveVelocity equal to the moveInput multiplied by the movementSpeed variable (Normalized so the speed is the same in all directions)
 			moveVelocity = moveInput.normalized * movementSpeed;
+			#endregion
+
+			// SHOOTING WITH THE ARROW KEYS
+			#region Shooting With Arrow Keys
+			// Replace this later with the option to hold the key down and shoot on a fixed timer (This can be tweaked with a temporary upgrade later on)
+			// If the UP ARROW is pressed, Instantiate a bullet with the rotation of 0, 0, 0.
+			if (Input.GetKeyDown(KeyCode.UpArrow)){
+				GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
+			}
+			// If the RIGHT ARROW is pressed, Instantiate a bullet with the rotation of 0, 0, 270.
+			if (Input.GetKeyDown(KeyCode.RightArrow)){
+				GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 270.0f));
+			}
+			// If the DOWN ARROW is pressed, Instantiate a bullet with the rotation of 0, 0, 180.
+			if (Input.GetKeyDown(KeyCode.DownArrow)){
+				GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 180.0f));
+			}
+			// If the Left ARROW is pressed, Instantiate a bullet with the rotation of 0, 0, 270.
+			if (Input.GetKeyDown(KeyCode.LeftArrow)){
+				GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f));
+			}
+
+
+
+
+
 			#endregion
 
 			// Old code using the mouse to shoot
