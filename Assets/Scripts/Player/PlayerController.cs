@@ -129,10 +129,6 @@ public class PlayerController : MonoBehaviour {
 				GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f));
 			}
 
-
-
-
-
 			#endregion
 
 			// Old code using the mouse to shoot
