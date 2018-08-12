@@ -7,8 +7,8 @@ public class EnemyController : MonoBehaviour {
 	private Transform target;
 	public EnemyScriptable eS;
 
-	[SerializeField] private enum type{ neutral, ranged, aggressive };
-	[SerializeField] private type enemyType;
+	public enum type{ neutral, ranged, aggressive, splitter };
+	public type enemyType;
 
 	//public bool canDropItem;
 
@@ -42,6 +42,9 @@ public class EnemyController : MonoBehaviour {
 		} else if (enemyType == type.aggressive) {
 			// Check if the type of this enemy is Aggressive
 			Debug.Log ("I am Aggressive");
+		} else if (enemyType == type.splitter) {
+			// Check if the type of this enemy is Splitter
+			Debug.Log("I am a Splitter");
 		}
 	}
 
@@ -50,7 +53,7 @@ public class EnemyController : MonoBehaviour {
 			
 			// Call the NuetralBehaviour function. This function contains all of the code needed to move the
 			// Nuetral AI as intended.
-			NeutralBehaviour();
+			NeutralBehaviour ();
 
 		} else if (enemyType == type.ranged) {
 			
@@ -60,9 +63,10 @@ public class EnemyController : MonoBehaviour {
 			
 			// Call the AggressiveBehaviour function. This function contains all of the code needed to move the
 			// Aggressive AI as intended.
-			AggressiveBehaviour();
+			AggressiveBehaviour ();
+		} else if (enemyType == type.splitter) {
+			AggressiveBehaviour ();
 		}
-			
 	}
 
 	void NeutralBehaviour(){

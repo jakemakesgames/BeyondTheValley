@@ -62,10 +62,10 @@ public class Projectile : MonoBehaviour {
 	void Update(){
 		// When the projectile is instantaited, move the object by the moveSpeed variable multiplied by Time.deltaTime
 		transform.position += transform.up * moveSpeed * Time.deltaTime;
+
 		Destroy (gameObject, 5f);
 	}
-
-
+		
 	void DestroyProjectile(){
 		Destroy (gameObject, 0.1f);
 	}
