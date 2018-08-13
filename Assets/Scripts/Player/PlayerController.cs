@@ -27,14 +27,14 @@ public class PlayerController : MonoBehaviour {
 	[Header("Ranged Attack Variables")]
 	public GameObject projectileOBJ;
 
-	/*
-	private Vector3 target;
-
-	[SerializeField] private Transform playerPos;
-
 	// Shooting Variables
 	[SerializeField] private float shootingTimer;
 	public float timeBetweenShots;
+
+	/*
+	private Vector3 target;
+
+	[SerializeField] private Transform playerPos;  
 
 	// The position in which the projectile is instantiated
 	public GameObject shotPos;*/
@@ -112,21 +112,42 @@ public class PlayerController : MonoBehaviour {
 			// SHOOTING WITH THE ARROW KEYS
 			#region Shooting With Arrow Keys
 			// Replace this later with the option to hold the key down and shoot on a fixed timer (This can be tweaked with a temporary upgrade later on)
-			// If the UP ARROW is pressed, Instantiate a bullet with the rotation of 0, 0, 0.
-			if (Input.GetKeyDown(KeyCode.UpArrow)){
-				GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
-			}
-			// If the RIGHT ARROW is pressed, Instantiate a bullet with the rotation of 0, 0, 270.
-			if (Input.GetKeyDown(KeyCode.RightArrow)){
-				GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 270.0f));
-			}
-			// If the DOWN ARROW is pressed, Instantiate a bullet with the rotation of 0, 0, 180.
-			if (Input.GetKeyDown(KeyCode.DownArrow)){
-				GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 180.0f));
-			}
+			// If the UP ARROW is being held down, Instantiate a bullet with the rotation of 0, 0, 0.
+			if (Input.GetKey(KeyCode.UpArrow)){
+				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
+				if (Time.time - shootingTimer > timeBetweenShots){
+					// Instantiate the projectile prefab
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
+					// Reset the timer
+					shootingTimer = Time.time;
+				}
+			// Else If the RIGHT ARROW is being held down, Instantiate a bullet with the rotation of 0, 0, 270.
+			} else if (Input.GetKey(KeyCode.RightArrow)){
+				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
+				if (Time.time - shootingTimer > timeBetweenShots){
+					// Instantiate the projectile prefab
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 270.0f));
+					// Reset the timer
+					shootingTimer = Time.time;
+				}
+			// Else If the DOWN ARROW is being held down, Instantiate a bullet with the rotation of 0, 0, 180.
+			} else if (Input.GetKey(KeyCode.DownArrow)){
+				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
+				if (Time.time - shootingTimer > timeBetweenShots){
+					// Instantiate the projectile prefab
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 180.0f));
+					// Reset the timer
+					shootingTimer = Time.time;
+				}
 			// If the Left ARROW is pressed, Instantiate a bullet with the rotation of 0, 0, 270.
-			if (Input.GetKeyDown(KeyCode.LeftArrow)){
-				GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f));
+			} else if (Input.GetKey(KeyCode.LeftArrow)){
+				if (Time.time - shootingTimer > timeBetweenShots){
+					// Instantiate the projectile prefab
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f));
+					// Reset the timer
+					shootingTimer = Time.time;
+					}
+				}
 			}
 
 			#endregion
@@ -150,7 +171,6 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		#endregion
-	}
 
 	void FixedUpdate(){
 
