@@ -57,11 +57,16 @@ public class Projectile : MonoBehaviour {
 
 	public int damageAmount;
 
+	private float lockPos = 0;
+
 	[SerializeField] private float moveSpeed;
 
 	void Update(){
+
+		transform.Rotate (lockPos, lockPos, lockPos);
+
 		// When the projectile is instantaited, move the object by the moveSpeed variable multiplied by Time.deltaTime
-		transform.position += transform.up * moveSpeed * Time.deltaTime;
+		transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
 		Destroy (gameObject, 5f);
 	}

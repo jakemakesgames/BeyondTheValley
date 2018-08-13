@@ -111,6 +111,42 @@ public class PlayerController : MonoBehaviour {
 
 			// SHOOTING WITH THE ARROW KEYS
 			#region Shooting With Arrow Keys
+
+			bool shoot = false;
+			Vector3 direction = transform.position;
+
+			// If the Up Arrow is being held down
+			if (Input.GetKey(KeyCode.UpArrow)){
+				// Set the direction vector += to Vector3.forward
+				direction += Vector3.up;
+				// Shoot bool is equal to true
+				shoot = true;
+				Debug.Log("Up Vector: " + direction);
+			}
+
+			// If the Right Arrow is being held down
+			if (Input.GetKey(KeyCode.RightArrow)){
+				// Set the direction vector += to Vector3.right
+				direction += Vector3.right;
+				// Shoot bool is equal to true
+				shoot = true;
+				Debug.Log("Right Vector: " + direction);
+
+			}
+
+			if (shoot == true && direction != transform.position){
+				Vector3 relativePos = direction - transform.position;
+				Quaternion rotation = Quaternion.LookRotation(relativePos);
+
+				GameObject projectile = Instantiate(projectileOBJ, transform.position, rotation);
+				//GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(direction.x, direction.y, direction.z));
+				//shoot = false;
+				//direction = Vector3.zero;
+			}
+
+
+			/*
+			 OLD SHOOTING CODE
 			// Replace this later with the option to hold the key down and shoot on a fixed timer (This can be tweaked with a temporary upgrade later on)
 			// If the UP ARROW is being held down, Instantiate a bullet with the rotation of 0, 0, 0.
 			if (Input.GetKey(KeyCode.UpArrow)){
@@ -148,6 +184,11 @@ public class PlayerController : MonoBehaviour {
 					shootingTimer = Time.time;
 					}
 				}
+			*/
+
+
+
+
 			}
 
 			#endregion

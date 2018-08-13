@@ -220,6 +220,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1013844127912008, guid: 71ce408b0303a844d985e6ef61c03b5d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71ce408b0303a844d985e6ef61c03b5d, type: 2}
   m_IsPrefabParent: 0
@@ -1156,6 +1160,15 @@ Prefab:
       value: 
       objectReference: {fileID: 1291383763489818, guid: e3de8ab2232ad4a419760c425ac017a5,
         type: 2}
+    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
+        type: 2}
+      propertyPath: timeBetweenShots
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568238253490336, guid: b79bdfa7c0de1234db1625366c329956, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b79bdfa7c0de1234db1625366c329956, type: 2}
   m_IsPrefabParent: 0
