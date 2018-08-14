@@ -6,8 +6,8 @@ using XboxCtrlrInput;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour {
 
-	// Components
-	private Rigidbody2D rb2D;
+	// Unity Components
+	[SerializeField] private Rigidbody2D rb2D;
 	public XboxController controller;
 
 	[Header("Movement Speed Variables")]
@@ -17,45 +17,32 @@ public class PlayerController : MonoBehaviour {
 	// Keyboard Variables
 	private Vector2 moveVelocity;
 
-	[Header("Gamepad Variables")] // Gamepad Variables
+	// Gamepad Variables
+	[Header("Gamepad Variables")]
 	private Vector2 moveVelocityAlt;
+
 	// Gamepad Detection
 	private int gamepad = 0;
 	public bool usingGamepad;
 
-
-	[Header("Ranged Attack Variables")]
+	[Header("Projectile Prefabs")]
 	public GameObject projectileOBJ;
 
-	// Shooting Variables
-	[SerializeField] private float shootingTimer;
+	[Header("Shooting Timers")]
+	private float shootingTimer; // shootingTimer does need to be a public variable
 	public float timeBetweenShots;
-
-	/*
-	private Vector3 target;
-
-	[SerializeField] private Transform playerPos;  
-
-	// The position in which the projectile is instantiated
-	public GameObject shotPos;*/
 
 	void Start(){
 
 		// The rb2D varible is set the to Rigidbody 2D component on the Player GameObject
 		rb2D = GetComponent<Rigidbody2D> ();
-
-		// Setting Ranged Attack Variables
-		//playerPos = GetComponent<Transform> ();
-		//shootingTimer = Time.time;
-		//shotPos = GameObject.FindGameObjectWithTag ("shotPos");
-
 	}
 
 	void Update(){
 
 		#region MOVEMENT
 
-		/*
+		/* -----> THINK ABOUT PUTTING THIS ON THE GAME MANAGER (WHICH WILL BE "DONT DESTROY ON LOAD"), THIS WILL CLEAN UP THIS SCRIPT A LITTLE MORE
 		#region Gamepad Detection
 		string[] names = Input.GetJoystickNames();
 		for (int i = 0; i < names.Length; i++) {
@@ -76,7 +63,6 @@ public class PlayerController : MonoBehaviour {
 
 		#endregion
 		*/
-
 
 		if (usingGamepad) {
 			#region Gamepad Input
@@ -113,6 +99,7 @@ public class PlayerController : MonoBehaviour {
 			// If the Up Arrow AND the Right Arrow are being held at the same time
 			if (Input.GetKey(KeyCode.UpArrow) && (Input.GetKey(KeyCode.RightArrow)))
 			{
+				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots)
 				{
 					// Instantiate the projectile prefab at -45 on the Z axis.
@@ -125,6 +112,7 @@ public class PlayerController : MonoBehaviour {
 			// If the Up Arrow AND the Left Arrow are being held at the same time
 			if (Input.GetKey(KeyCode.UpArrow) && (Input.GetKey(KeyCode.LeftArrow)))
 			{
+				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots)
 				{
 					// Instantiate the projectile prefab at 45 on the Z axis.
@@ -137,6 +125,7 @@ public class PlayerController : MonoBehaviour {
 			// If the Down Arrow AND the Right Arrow are being held at the same time
 			if (Input.GetKey(KeyCode.DownArrow) && (Input.GetKey(KeyCode.RightArrow)))
 			{
+				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots)
 				{
 					// Instantiate the projectile prefab at -135 on the Z axis
@@ -149,6 +138,7 @@ public class PlayerController : MonoBehaviour {
 			// If the Down Arrow AND the Left Arrow are being held at the same time
 			if (Input.GetKey(KeyCode.DownArrow) && (Input.GetKey(KeyCode.LeftArrow)))
 			{
+				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots)
 				{
 					// Instantiate the projectile prefab at 135 on the Z axis
@@ -201,23 +191,6 @@ public class PlayerController : MonoBehaviour {
 			#endregion
 
 			}
-
-			// Old code using the mouse to shoot
-			/*
-			#region Mouse Ranged Attack
-
-			// If the left mouse button is clicked (Do the thing)
-			if (Input.GetMouseButton(0)){
-				// If Time.time minus the shootingTimer variable is GREATER THAN the timeBetweenShots varibale
-				if (Time.time - shootingTimer > timeBetweenShots) {
-					// Call the Shoot function
-					Shoot();
-					// Reset the shooting timer
-					shootingTimer = Time.time;
-				}
-			}
-			#endregion
-			*/
 		}
 
 		#endregion

@@ -15,17 +15,13 @@ public class Projectile : MonoBehaviour {
 
 		Destroy (gameObject, 5f);
 	}
-		
-	void DestroyProjectile(){
-		Destroy (gameObject, 0.1f);
-	}
 
 	void OnTriggerEnter2D (Collider2D other){
 		// If the projectile collides with another GameObject tagged "Enemy" -> Destroy both objects
 		if (other.tag == "Enemy") {
 			other.GetComponent<EnemyHealthManager> ().TakeDamage (damageAmount);
 			//Destroy (other.gameObject);
-			DestroyProjectile ();
+			Destroy(gameObject);
 		}
 	}
 }
