@@ -109,44 +109,58 @@ public class PlayerController : MonoBehaviour {
 			moveVelocity = moveInput.normalized * movementSpeed;
 			#endregion
 
-			// SHOOTING WITH THE ARROW KEYS
-			#region Shooting With Arrow Keys
-
-			bool shoot = false;
-			Vector3 direction = transform.position;
-
-			// If the Up Arrow is being held down
-			if (Input.GetKey(KeyCode.UpArrow)){
-				// Set the direction vector += to Vector3.forward
-				direction += Vector3.up;
-				// Shoot bool is equal to true
-				shoot = true;
-				Debug.Log("Up Vector: " + direction);
+			#region DIAGONAL SHOOTING
+			// If the Up Arrow AND the Right Arrow are being held at the same time
+			if (Input.GetKey(KeyCode.UpArrow) && (Input.GetKey(KeyCode.RightArrow)))
+			{
+				if (Time.time - shootingTimer > timeBetweenShots)
+				{
+					// Instantiate the projectile prefab at -45 on the Z axis.
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, -45f));
+					// Reset the timer
+					shootingTimer = Time.time;
+				}
 			}
 
-			// If the Right Arrow is being held down
-			if (Input.GetKey(KeyCode.RightArrow)){
-				// Set the direction vector += to Vector3.right
-				direction += Vector3.right;
-				// Shoot bool is equal to true
-				shoot = true;
-				Debug.Log("Right Vector: " + direction);
-
+			// If the Up Arrow AND the Left Arrow are being held at the same time
+			if (Input.GetKey(KeyCode.UpArrow) && (Input.GetKey(KeyCode.LeftArrow)))
+			{
+				if (Time.time - shootingTimer > timeBetweenShots)
+				{
+					// Instantiate the projectile prefab at 45 on the Z axis.
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 45f));
+					// Reset the timer
+					shootingTimer = Time.time;
+				}
 			}
 
-			if (shoot == true && direction != transform.position){
-				Vector3 relativePos = direction - transform.position;
-				Quaternion rotation = Quaternion.LookRotation(relativePos);
-
-				GameObject projectile = Instantiate(projectileOBJ, transform.position, rotation);
-				//GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(direction.x, direction.y, direction.z));
-				//shoot = false;
-				//direction = Vector3.zero;
+			// If the Down Arrow AND the Right Arrow are being held at the same time
+			if (Input.GetKey(KeyCode.DownArrow) && (Input.GetKey(KeyCode.RightArrow)))
+			{
+				if (Time.time - shootingTimer > timeBetweenShots)
+				{
+					// Instantiate the projectile prefab at -135 on the Z axis
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, -135f));
+					// Reset the timer
+					shootingTimer = Time.time;
+				}
 			}
 
+			// If the Down Arrow AND the Left Arrow are being held at the same time
+			if (Input.GetKey(KeyCode.DownArrow) && (Input.GetKey(KeyCode.LeftArrow)))
+			{
+				if (Time.time - shootingTimer > timeBetweenShots)
+				{
+					// Instantiate the projectile prefab at 135 on the Z axis
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 135f));
+					// Reset the timer
+					shootingTimer = Time.time;
+				}
+			}
+			#endregion
 
-			/*
-			 OLD SHOOTING CODE
+			#region STRAIGHT SHOOTING
+			 
 			// Replace this later with the option to hold the key down and shoot on a fixed timer (This can be tweaked with a temporary upgrade later on)
 			// If the UP ARROW is being held down, Instantiate a bullet with the rotation of 0, 0, 0.
 			if (Input.GetKey(KeyCode.UpArrow)){
@@ -184,14 +198,9 @@ public class PlayerController : MonoBehaviour {
 					shootingTimer = Time.time;
 					}
 				}
-			*/
-
-
-
+			#endregion
 
 			}
-
-			#endregion
 
 			// Old code using the mouse to shoot
 			/*
