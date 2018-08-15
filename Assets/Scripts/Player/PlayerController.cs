@@ -190,6 +190,10 @@ public class PlayerController : MonoBehaviour {
 				}
 			#endregion
 
+			// AREA OF EFFECT BOMB EXPLOSION.
+			// Player drops bomb, after X amount of time -> it'll explode (This gives the player time to move out of the blast radius).
+
+
 			}
 		}
 
