@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
 
 	[Header("Projectile Prefabs")]
 	public GameObject projectileOBJ;
+	public GameObject bombOBJ;
 
 	[Header("Shooting Timers")]
 	private float shootingTimer; // shootingTimer does need to be a public variable
@@ -190,9 +191,14 @@ public class PlayerController : MonoBehaviour {
 				}
 			#endregion
 
-			// AREA OF EFFECT BOMB EXPLOSION.
-			// Player drops bomb, after X amount of time -> it'll explode (This gives the player time to move out of the blast radius).
-
+			#region DROPPIN' BOMBS
+			// If the player presses the Spacebar -> Do the thing
+			if (Input.GetKeyDown(KeyCode.Space)){
+				// Instantate the Bomb
+				GameObject bomb = Instantiate(bombOBJ, transform.position, Quaternion.identity);
+			}
+				
+			#endregion
 
 			}
 		}

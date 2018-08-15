@@ -38,12 +38,13 @@ public class Bomb : MonoBehaviour {
 
 		foreach (Collider2D nearbyObject in colliders) {
 
-			// If the nearby objects tag is "Enemy"
+			// If the nearby object's tag is "Enemy"
 			if (nearbyObject.tag == "Enemy") {
 				// Get the EnemyHealthManager component on that object and call the TakeDamage function -> deal the damageAmount to their health
 				nearbyObject.GetComponent<EnemyHealthManager>().TakeDamage (damageAmount);
 			}
 
+			// If the nearby object's tag is "Player"
 			if (nearbyObject.tag == "Player") {
 				// Get the HealthManager component on that object and call the TakeDamage function -> deal the damageAmount to their health
 				nearbyObject.GetComponent<PlayerHealthController>().HurtPlayer (damageAmount);
