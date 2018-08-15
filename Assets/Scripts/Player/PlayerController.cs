@@ -6,10 +6,13 @@ using XboxCtrlrInput;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour {
 
+	#region Variable and Component References
+
 	// Unity Components
 	[SerializeField] private Rigidbody2D rb2D;
 	public XboxController controller;
 
+	// Movement Speed Variables
 	[Header("Movement Speed Variables")]
 	public float movementSpeed;
 	public float maxSpeed;
@@ -25,13 +28,18 @@ public class PlayerController : MonoBehaviour {
 	private int gamepad = 0;
 	public bool usingGamepad;
 
+	// Projectile and Bomb Prefabs
 	[Header("Projectile Prefabs")]
 	public GameObject projectileOBJ;
 	public GameObject bombOBJ;
+	public int bombCount;
 
+	// Shooting Timers
 	[Header("Shooting Timers")]
 	private float shootingTimer; // shootingTimer does need to be a public variable
 	public float timeBetweenShots;
+
+	#endregion
 
 	void Start(){
 
@@ -94,6 +102,8 @@ public class PlayerController : MonoBehaviour {
 			Vector2 moveInput = new Vector2 (Input.GetAxisRaw ("Hori"), Input.GetAxisRaw ("Vert"));
 			// Set the moveVelocity equal to the moveInput multiplied by the movementSpeed variable (Normalized so the speed is the same in all directions)
 			moveVelocity = moveInput.normalized * movementSpeed;
+			#endregion
+
 			#endregion
 
 			#region DIAGONAL SHOOTING
@@ -194,16 +204,19 @@ public class PlayerController : MonoBehaviour {
 			#region DROPPIN' BOMBS
 			// If the player presses the Spacebar -> Do the thing
 			if (Input.GetKeyDown(KeyCode.Space)){
-				// Instantate the Bomb
-				GameObject bomb = Instantiate(bombOBJ, transform.position, Quaternion.identity);
+				if (bombCount > 0){
+					// Instantate the Bomb
+					GameObject bomb = Instantiate(bombOBJ, transform.position, Quaternion.identity);
+					bombCount--;
+				} else {
+					Debug.Log("You have no more bombs!");
+				}
 			}
 				
 			#endregion
 
 			}
 		}
-
-		#endregion
 
 	void FixedUpdate(){
 

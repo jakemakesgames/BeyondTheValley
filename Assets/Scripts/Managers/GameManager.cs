@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 	// This function determines which item will be dropped when an enemy is killed
 	public void ItemDrop(Vector2 enemyDeathSpot){
 
+		#region Drops
 		int randomNum;
 		GameObject HP;
 		GameObject gem;
@@ -56,7 +57,6 @@ public class GameManager : MonoBehaviour {
 		if (randomNum == 5) {
 			Debug.Log ("Nothing dropped");
 		}
+		#endregion
 	}
-
-
 }
