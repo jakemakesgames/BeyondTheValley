@@ -2363,7 +2363,7 @@ Prefab:
     - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
         type: 2}
       propertyPath: bombCount
-      value: 3
+      value: 95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b79bdfa7c0de1234db1625366c329956, type: 2}

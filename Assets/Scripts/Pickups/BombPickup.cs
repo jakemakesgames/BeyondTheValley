@@ -11,10 +11,21 @@ public class BombPickup : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
+		// If the other object to collide with this is tagged player
 		if (other.tag == "Player") {
-			playerController.bombCount++;
-			Debug.Log ("Bomb Up + 1");
-			Destroy (gameObject);
+			// If the player's bomb count is greater than or equal to 100
+			if (playerController.bombCount >= 100) {
+				// Cap the player's bomb count to 100
+				playerController.bombCount = 100;
+				Debug.Log ("You cannot hold anymore bombs!");
+			} else {
+				// Increase the bomb count by 1
+				playerController.bombCount++;
+				Debug.Log ("Bomb Up + 1");
+				// Destroy this pickup object (to prevent it being picked up again) 
+				Destroy (gameObject);
+			}
 		}
 	}
 }
+
