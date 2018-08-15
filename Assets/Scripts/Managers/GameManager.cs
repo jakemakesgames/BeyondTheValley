@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject healthPickup;
 	public GameObject gemPickup;
 	public GameObject rapidFirePickup;
+	public GameObject bombPickup;
 
 	// This function determines which item will be dropped when an enemy is killed
 	public void ItemDrop(Vector2 enemyDeathSpot){
@@ -22,9 +23,10 @@ public class GameManager : MonoBehaviour {
 		GameObject HP;
 		GameObject gem;
 		GameObject rapidFire;
+		GameObject bomb;
 
 		// The random number equals a number between 1 & 5
-		randomNum = Random.Range(1, 5);
+		randomNum = Random.Range(1, 6);
 
 		// If the randNum variable is equal to 1 -> a health pickup has been dropped
 		if (randomNum == 1){
@@ -47,15 +49,21 @@ public class GameManager : MonoBehaviour {
 			Debug.Log("Rapid Fire dropped");
 		}
 
-		// If the randNum is equal is 4 -> nothing is dropped
+		// If the randNum is equal is 5 -> a bomb pickup is dropped
 		if (randomNum == 4){
-			// No item is to be dropped 
-			Debug.Log("Nothing dropped");
+			// Instantiate the bombPickup GameObject at the enemy's death spot.
+			bomb = Instantiate(bombPickup, enemyDeathSpot, Quaternion.identity);
+			Debug.Log("Bomb dropped");
 		}
 
 		// If the randNum is equal is 5 -> nothing is dropped
 		if (randomNum == 5) {
 			Debug.Log ("Nothing dropped");
+		}
+
+		// If the randNum is equal is 6 -> nothing is dropped
+		if (randomNum == 6){
+			Debug.Log("Nothing dropped");
 		}
 		#endregion
 	}

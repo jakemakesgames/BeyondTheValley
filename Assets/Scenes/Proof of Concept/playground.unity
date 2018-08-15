@@ -133,7 +133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &12143670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &14567986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,7 +860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &406709420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,7 +1051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &671309219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,6 +1275,7 @@ MonoBehaviour:
   gemPickup: {fileID: 1862087382309288, guid: 1e74b47750a173843a1843086d2734a9, type: 2}
   rapidFirePickup: {fileID: 1631113195227592, guid: 3fd7b5643746a44449ba3bfd8fb60aee,
     type: 2}
+  bombPickup: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
 --- !u!4 &678095054
 Transform:
   m_ObjectHideFlags: 0
@@ -1621,6 +1622,10 @@ Prefab:
       propertyPath: m_Name
       value: BombUp (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
   m_IsPrefabParent: 0
@@ -1666,6 +1671,10 @@ Prefab:
     - target: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
       propertyPath: m_Name
       value: BombUp (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
@@ -1895,6 +1904,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
   m_IsPrefabParent: 0
@@ -2121,7 +2134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1252741344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2497,7 +2510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1459631206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2722,6 +2735,10 @@ Prefab:
     - target: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
       propertyPath: m_Name
       value: BombUp (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
@@ -3314,6 +3331,10 @@ Prefab:
       propertyPath: m_Name
       value: BombUp (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
   m_IsPrefabParent: 0
@@ -3531,7 +3552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2090108404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3683,6 +3704,10 @@ Prefab:
       propertyPath: m_Name
       value: BombUp (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
   m_IsPrefabParent: 0
@@ -3729,6 +3754,10 @@ Prefab:
       propertyPath: m_Name
       value: BombUp (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
   m_IsPrefabParent: 0
@@ -3774,6 +3803,10 @@ Prefab:
     - target: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
       propertyPath: m_Name
       value: BombUp (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}

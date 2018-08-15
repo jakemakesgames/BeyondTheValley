@@ -240,6 +240,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void UpdateBombUI(){
+		
 		#region UPDATE BOMB TEXT
 		// Update the bomb text to the bomb count
 		bombCountText.text = bombCount.ToString();
