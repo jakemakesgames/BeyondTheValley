@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using XboxCtrlrInput;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject projectileOBJ;
 	public GameObject bombOBJ;
 	public int bombCount;
+	public Text bombCountText;
 
 	// Shooting Timers
 	[Header("Shooting Timers")]
@@ -45,6 +47,9 @@ public class PlayerController : MonoBehaviour {
 
 		// The rb2D varible is set the to Rigidbody 2D component on the Player GameObject
 		rb2D = GetComponent<Rigidbody2D> ();
+
+		// Set the bomb text to the bomb count
+		bombCountText.text = bombCount.ToString();
 	}
 
 	void Update(){
@@ -208,6 +213,7 @@ public class PlayerController : MonoBehaviour {
 					// Instantate the Bomb
 					GameObject bomb = Instantiate(bombOBJ, transform.position, Quaternion.identity);
 					bombCount--;
+					UpdateBombUI();
 				} else {
 					Debug.Log("You have no more bombs!");
 				}
@@ -230,6 +236,13 @@ public class PlayerController : MonoBehaviour {
 			rb2D.MovePosition (rb2D.position + moveVelocity * Time.fixedDeltaTime);
 		}
 
+		#endregion
+	}
+
+	public void UpdateBombUI(){
+		#region UPDATE BOMB TEXT
+		// Update the bomb text to the bomb count
+		bombCountText.text = bombCount.ToString();
 		#endregion
 	}
 }

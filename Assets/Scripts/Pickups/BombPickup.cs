@@ -22,6 +22,7 @@ public class BombPickup : MonoBehaviour {
 				// Increase the bomb count by 1
 				playerController.bombCount++;
 				Debug.Log ("Bomb Up + 1");
+				playerController.UpdateBombUI ();
 				// Destroy this pickup object (to prevent it being picked up again) 
 				Destroy (gameObject);
 			}
