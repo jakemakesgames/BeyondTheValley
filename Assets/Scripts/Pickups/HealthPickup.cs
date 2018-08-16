@@ -18,7 +18,7 @@ public class HealthPickup : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D other){
-		// If the object collided has a tag "Play" -> Do the thing
+		// If the object collided has a tag "Player" -> Do the thing
 		if (other.tag == "Player") {
 
 			if (healthGained == 10) {
@@ -40,7 +40,6 @@ public class HealthPickup : MonoBehaviour {
 	}
 
 	public void HealthGainedValue(){
-		
 
 		randNum = Random.Range (1, 3);
 
