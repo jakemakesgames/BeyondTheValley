@@ -5,14 +5,15 @@ using UnityEngine;
 public class EnemyHealthManager : MonoBehaviour {
 
 	[SerializeField] private EnemyController enemyController;
-	[SerializeField] private GameManager GM;
+	[SerializeField] private GameManager gm;
+	public int scoreValue;
 
 	[Header("Enemy Health")]
 	public int health;
 
 	void Awake(){
 		// Finding reference to the Game Manager GameObject
-		GM = FindObjectOfType<GameManager>();
+		gm = FindObjectOfType<GameManager>();
 		enemyController = GetComponent<EnemyController> ();
 	}
 
@@ -47,7 +48,9 @@ public class EnemyHealthManager : MonoBehaviour {
 		// Creating a Vector2 called enemyDeathSpot at the current gameObjects transform.position
 		Vector2 enemyDeathSpot = this.gameObject.transform.position;
 		// Call the ItemDrop function in the Game Manager, passing in the Vector2 created above -> an Item should drop (unless the randNum is equal to 3 OR 4)
-		GM.GetComponent<GameManager>().ItemDrop(enemyDeathSpot);
+		gm.GetComponent<GameManager>().ItemDrop(enemyDeathSpot);
+		// Add score
+		gm.AddScore(scoreValue);
 		// Destroy this enemy
 		Destroy(this.gameObject);
 		}

@@ -5,8 +5,15 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
 
 	public int damageAmount;
+	public int scoreMultiplier;
 
 	[SerializeField] private float moveSpeed;
+	[SerializeField] GameManager gm;
+
+	void Start(){
+		// Find a reference to the GameManager gameObject 
+		gm = FindObjectOfType<GameManager> ();
+	}
 
 	void Update(){
 
@@ -19,7 +26,10 @@ public class Projectile : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other){
 		// If the projectile collides with another GameObject tagged "Enemy" -> take the damageAmount from the enemies health
 		if (other.tag == "Enemy") {
+			// Deal damage to the enemy
 			other.GetComponent<EnemyHealthManager> ().TakeDamage (damageAmount);
+			// Add score
+			gm.AddScore(scoreMultiplier);
 			// Instantiate particle effect
 			// Destroy the gameObject
 			Destroy(gameObject);

@@ -90,7 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 1
+  scoreMultiplier: 10
   moveSpeed: 125
+  gm: {fileID: 0}
 --- !u!212 &212541463088993562
 SpriteRenderer:
   m_ObjectHideFlags: 1

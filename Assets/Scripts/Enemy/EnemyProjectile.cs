@@ -40,6 +40,7 @@ public class EnemyProjectile : MonoBehaviour {
 		// If we want the projectile to follow the player like a missile, use the line of code below
 		//transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 		#endregion
+
 	}
 
 	void OnTriggerEnter2D (Collider2D other){

@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+	#region COMPONENTS AND VARIABLES
 	PlayerController playerController;
 
 	[Header("Scoring")]
 	public int playerScore;
 	public Text playerScoreText;
+
 	public int gemCount;
 	public Text gemText;
 
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject rapidFirePickup;
 	public GameObject bombPickup;
 
+	#endregion
+
 	void Start(){
 		// Find a reference to the PlayerController
 		playerController = FindObjectOfType<PlayerController> ();
@@ -26,6 +30,7 @@ public class GameManager : MonoBehaviour {
 
 	void Update(){
 		UpdateGemText ();
+		UpdateScoreText ();
 	}
 
 
@@ -82,8 +87,20 @@ public class GameManager : MonoBehaviour {
 		#endregion
 	}
 
+	public void AddScore(int scoreAmount){
+		// Add the score amount in passed in to the playerScore
+		playerScore += scoreAmount;
+		// Update the PlayerScoreText
+		UpdateScoreText();
+	}
+
 	public void UpdateGemText(){
 		// Update the GemText
 		gemText.text = gemCount.ToString ();
+	}
+
+	public void UpdateScoreText(){
+		// Update the PlayerScoreText
+		playerScoreText.text = playerScore.ToString ();
 	}
 }

@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour {
 	private float timeBetweenShots;
 	public float startTimeBetweenShots;
 	public GameObject projectile;
+	bool canShoot = true;
 
 	#endregion
 
@@ -73,6 +74,12 @@ public class EnemyController : MonoBehaviour {
 			AggressiveBehaviour ();
 		}
 		#endregion
+
+		// If the target does not exist
+		if (target == null) {
+			// Destroy the Object
+			HardDestroy();
+		}
 	}
 
 	void AggressiveBehaviour(){
@@ -99,17 +106,24 @@ public class EnemyController : MonoBehaviour {
 		#endregion
 
 		#region SHOOTING BEHAVIOURS
-		// If the timeBetweenShots value is LESS THAN or equal to 0 -> Do the thing
-		if (timeBetweenShots <= 0) {
-			// Instantiate a projectile at 0, 0, 0
-			Instantiate(projectile, transform.position, Quaternion.identity);
-			//Reset the shooting timer
-			timeBetweenShots = startTimeBetweenShots;
-		// Else subtract Time.deltaTime from the timeBetweenShots value
-		} else {
-			timeBetweenShots -= Time.deltaTime;
+
+		if (canShoot){
+			// If the timeBetweenShots value is LESS THAN or equal to 0 -> Do the thing
+			if (timeBetweenShots <= 0) {
+				// Instantiate a projectile at 0, 0, 0
+				Instantiate(projectile, transform.position, Quaternion.identity);
+				//Reset the shooting timer
+				timeBetweenShots = startTimeBetweenShots;
+				// Else subtract Time.deltaTime from the timeBetweenShots value
+			} else {
+				timeBetweenShots -= Time.deltaTime;
+			}
 		}
 		#endregion
+	}
+
+	void HardDestroy(){
+		Destroy (gameObject);
 	}
 
 }
