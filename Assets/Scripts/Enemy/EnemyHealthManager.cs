@@ -10,10 +10,6 @@ public class EnemyHealthManager : MonoBehaviour {
 	[Header("Enemy Health")]
 	public int health;
 
-	bool isSplitter = false;
-	public GameObject splitterHead;
-	public GameObject splitterBody;
-
 	void Awake(){
 		// Finding reference to the Game Manager GameObject
 		GM = FindObjectOfType<GameManager>();
@@ -25,9 +21,6 @@ public class EnemyHealthManager : MonoBehaviour {
 		// Setting the health variable to the enemy scriptable health value attached to this GameObject
 		//health = enemyController.health;
 
-		if (enemyController.enemyType == EnemyController.type.splitter) {
-			isSplitter = true;
-		}
 	}
 
 	private void Update()
