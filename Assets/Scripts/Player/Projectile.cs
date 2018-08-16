@@ -17,10 +17,17 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D other){
-		// If the projectile collides with another GameObject tagged "Enemy" -> Destroy both objects
+		// If the projectile collides with another GameObject tagged "Enemy" -> take the damageAmount from the enemies health
 		if (other.tag == "Enemy") {
 			other.GetComponent<EnemyHealthManager> ().TakeDamage (damageAmount);
-			//Destroy (other.gameObject);
+			// Instantiate particle effect
+			// Destroy the gameObject
+			Destroy(gameObject);
+		}
+		// If the projectile collides with another GameObject tagged "Wall" -> Destroy the projectile
+		if (other.tag == "Wall") {
+			// Instantiate particle effect
+			// Destroy the gameObject
 			Destroy(gameObject);
 		}
 	}
