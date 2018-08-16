@@ -15,6 +15,13 @@ public class PlayerHealthController : MonoBehaviour {
 	public Sprite fullHeart;
 	// The Sprite of the Empty Heart
 	public Sprite emptyHeart;
+	// The reference to the Game Over UI
+	public GameObject gameOverUI;
+
+	void Start(){
+		// Set the GameOverUI to false (not visible)
+		gameOverUI.SetActive (false);
+	}
 
 	void Update(){
 		
@@ -62,7 +69,12 @@ public class PlayerHealthController : MonoBehaviour {
 	}
 
 	void Die(){
+
+		// Show the GameOverUI
+		gameOverUI.SetActive(true);
 		Debug.Log ("You Died!");
+		// Destroy this gameObject -> The player is completely dead
+		Destroy (gameObject);
 	}
 
 }
