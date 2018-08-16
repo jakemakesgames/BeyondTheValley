@@ -322,8 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   eS: {fileID: 11400000, guid: 7e046e352fba1c34aa497001c53e1988, type: 2}
-  enemyController: {fileID: 230654485}
-  enemyType: 1
+  enemyType: 0
   speed: 0
   stoppingDistance: 50
   retreatDistance: 40
@@ -1019,8 +1018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   eS: {fileID: 11400000, guid: 7e046e352fba1c34aa497001c53e1988, type: 2}
-  enemyController: {fileID: 671309221}
-  enemyType: 1
+  enemyType: 0
   speed: 0
   stoppingDistance: 50
   retreatDistance: 40
@@ -1570,8 +1568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   eS: {fileID: 11400000, guid: 7e046e352fba1c34aa497001c53e1988, type: 2}
-  enemyController: {fileID: 850099843}
-  enemyType: 1
+  enemyType: 0
   speed: 0
   stoppingDistance: 50
   retreatDistance: 40
@@ -1703,8 +1700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   eS: {fileID: 11400000, guid: 7e046e352fba1c34aa497001c53e1988, type: 2}
-  enemyController: {fileID: 929396069}
-  enemyType: 1
+  enemyType: 0
   speed: 0
   stoppingDistance: 50
   retreatDistance: 40
@@ -2512,8 +2508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   eS: {fileID: 11400000, guid: 7e046e352fba1c34aa497001c53e1988, type: 2}
-  enemyController: {fileID: 1623717211}
-  enemyType: 1
+  enemyType: 0
   speed: 0
   stoppingDistance: 50
   retreatDistance: 40

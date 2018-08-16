@@ -62,6 +62,12 @@ public class EnemyController : MonoBehaviour {
 
 	void Update(){
 
+		// If the target does not exist
+		if (target == null) {
+			// Destroy the Object
+			HardDestroy();
+		}
+
 		#region ENEMY TYPE CHECK
 		if (enemyType == type.ranged) {
 			
@@ -75,50 +81,54 @@ public class EnemyController : MonoBehaviour {
 		}
 		#endregion
 
-		// If the target does not exist
-		if (target == null) {
-			// Destroy the Object
-			HardDestroy();
-		}
 	}
 
 	void AggressiveBehaviour(){
 		// Move the Enemy towards the player
-		transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
+		if (target != null){
+			transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
+		}
 	}
+
 
 	void RangedBehaviour(){
 		
 		#region MOVEMENT BEHAVIOURS
-		// If the distance between the enemy's position and the player's position is GREATER THAN the stopping distance -> Do the thing
-		if (Vector2.Distance (transform.position, target.position) > stoppingDistance) {
-			// Move the enemy from their current position to the player's position at the speed pace multiplied by Time.deltaTime
-			transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
-			// Else if the distance between the enemy's position and the player's position is LESS THAN the stopping distance and they aren't too close to the player -> Do the thing 
-		} else if (Vector2.Distance (transform.position, target.position) < stoppingDistance && Vector2.Distance (transform.position, target.position) > retreatDistance) {
-			// Make the enemy STOP moving
-			transform.position = this.transform.position;
-		// Else if the distance betwen the enemy's position and the player's position is less than the retreat distance -> Do the thing
-		} else if (Vector2.Distance (transform.position, target.position) < retreatDistance) {
-			// Move the enemy away from the player at the speed pace multiplied by Time.deltaTime
-			transform.position = Vector2.MoveTowards (transform.position, target.position, -speed * Time.deltaTime);
+		// If the player is still alive
+		if (target != null){
+			// If the distance between the enemy's position and the player's position is GREATER THAN the stopping distance -> Do the thing
+			if (Vector2.Distance (transform.position, target.position) > stoppingDistance) {
+				// Move the enemy from their current position to the player's position at the speed pace multiplied by Time.deltaTime
+				transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
+				// Else if the distance between the enemy's position and the player's position is LESS THAN the stopping distance and they aren't too close to the player -> Do the thing 
+			} else if (Vector2.Distance (transform.position, target.position) < stoppingDistance && Vector2.Distance (transform.position, target.position) > retreatDistance) {
+				// Make the enemy STOP moving
+				transform.position = this.transform.position;
+				// Else if the distance betwen the enemy's position and the player's position is less than the retreat distance -> Do the thing
+			} else if (Vector2.Distance (transform.position, target.position) < retreatDistance) {
+				// Move the enemy away from the player at the speed pace multiplied by Time.deltaTime
+				transform.position = Vector2.MoveTowards (transform.position, target.position, -speed * Time.deltaTime);
+			}
 		}
+
 		#endregion
 
 		#region SHOOTING BEHAVIOURS
-
-		if (canShoot){
-			// If the timeBetweenShots value is LESS THAN or equal to 0 -> Do the thing
-			if (timeBetweenShots <= 0) {
-				// Instantiate a projectile at 0, 0, 0
-				Instantiate(projectile, transform.position, Quaternion.identity);
-				//Reset the shooting timer
-				timeBetweenShots = startTimeBetweenShots;
-				// Else subtract Time.deltaTime from the timeBetweenShots value
-			} else {
-				timeBetweenShots -= Time.deltaTime;
+		if (target != null){
+			if (canShoot){
+				// If the timeBetweenShots value is LESS THAN or equal to 0 -> Do the thing
+				if (timeBetweenShots <= 0) {
+					// Instantiate a projectile at 0, 0, 0
+					Instantiate(projectile, transform.position, Quaternion.identity);
+					//Reset the shooting timer
+					timeBetweenShots = startTimeBetweenShots;
+					// Else subtract Time.deltaTime from the timeBetweenShots value
+				} else {
+					timeBetweenShots -= Time.deltaTime;
+				}
 			}
 		}
+
 		#endregion
 	}
 
