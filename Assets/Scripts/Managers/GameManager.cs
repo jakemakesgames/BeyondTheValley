@@ -5,15 +5,29 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+	PlayerController playerController;
+
 	[Header("Scoring")]
 	public int playerScore;
 	public Text playerScoreText;
+	public int gemCount;
+	public Text gemText;
 
 	[Header("Pickups")]
 	public GameObject healthPickup;
 	public GameObject gemPickup;
 	public GameObject rapidFirePickup;
 	public GameObject bombPickup;
+
+	void Start(){
+		// Find a reference to the PlayerController
+		playerController = FindObjectOfType<PlayerController> ();
+	}
+
+	void Update(){
+		UpdateGemText ();
+	}
+
 
 	// This function determines which item will be dropped when an enemy is killed
 	public void ItemDrop(Vector2 enemyDeathSpot){
@@ -66,5 +80,10 @@ public class GameManager : MonoBehaviour {
 			Debug.Log("Nothing dropped");
 		}
 		#endregion
+	}
+
+	public void UpdateGemText(){
+		// Update the GemText
+		gemText.text = gemCount.ToString ();
 	}
 }
