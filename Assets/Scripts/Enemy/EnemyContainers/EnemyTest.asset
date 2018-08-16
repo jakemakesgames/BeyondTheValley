@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d2e7fcd9aa67a648870525f97d7188f, type: 3}
-  m_Name: Skeleton
+  m_Name: EnemyTest
   m_EditorClassIdentifier: 
   enemySprite: {fileID: 0}
-  enemyHealth: 2
-  enemyDamageAmount: 1
-  enemyMovementSpeed: 25
-  enemyMoveRange: 20
-  enemyScoreValue: 2
+  enemyHealth: 0
+  enemyDamageAmount: 0
+  enemyMovementSpeed: 0
+  enemyMoveRange: 0
+  enemyScoreValue: 0
   enemyCanDropItem: 0
