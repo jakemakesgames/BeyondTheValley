@@ -7,7 +7,7 @@ using XboxCtrlrInput;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour {
 
-	#region Variable and Component References
+	#region COMPONENTS AND VARIABLES
 
 	// Unity Components
 	[SerializeField] private Rigidbody2D rb2D;
@@ -45,11 +45,13 @@ public class PlayerController : MonoBehaviour {
 
 	void Start(){
 
+		#region REFERENCING COMPONENTS/ SETTING VALUES
 		// The rb2D varible is set the to Rigidbody 2D component on the Player GameObject
 		rb2D = GetComponent<Rigidbody2D> ();
 
 		// Set the bomb text to the bomb count
 		bombCountText.text = bombCount.ToString();
+		#endregion
 	}
 
 	void Update(){
