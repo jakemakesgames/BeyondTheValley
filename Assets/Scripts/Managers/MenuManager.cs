@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
+	[Header("Temp Intro")]
+	// Temp story panel
+	public GameObject introCanvas;
+
+	[Header("Main Menu Variables")]
 	// Canvas Variables
 	public GameObject menuCanvas;
 	public GameObject controlsCanvas;
@@ -14,6 +19,8 @@ public class MenuManager : MonoBehaviour {
 
 	void Start(){
 		// Setting the correct Canvases to Active or Not
+		introCanvas.SetActive(true);
+
 		menuCanvas.SetActive (true);
 		controlsCanvas.SetActive (false);
 		optionsCanvas.SetActive (false);
@@ -64,6 +71,11 @@ public class MenuManager : MonoBehaviour {
 		// Quit the game
 		UnityEditor.EditorApplication.isPlaying = false;
 		Application.Quit ();
+	}
+
+	public void SkipIntro(){
+		// Set the intro canvas to false (hiding it from view).
+		introCanvas.SetActive(false);
 	}
 
 

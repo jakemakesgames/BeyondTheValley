@@ -7,9 +7,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
 	#region COMPONENTS AND VARIABLES
-	// This is in relation to aming the GameManager "DONT DESTROY ON LOAD"
-	private static bool created = false;
-	public string sceneToLoad;
 
 	PlayerController playerController;
 
@@ -28,15 +25,7 @@ public class GameManager : MonoBehaviour {
 
 	#endregion
 
-	#region DONT DESTROY ON LOAD FUNCTION
-	void Awake(){
-		if (!created) {
-			DontDestroyOnLoad (this.gameObject);
-			created = true;
-			Debug.Log ("Awake: " + this.gameObject);
-		}
-	}
-	#endregion
+
 
 	void Start(){
 		// Find a reference to the PlayerController
@@ -46,10 +35,6 @@ public class GameManager : MonoBehaviour {
 	void Update(){
 		UpdateGemText ();
 		UpdateScoreText ();
-
-		if (Input.GetKeyDown (KeyCode.P)) {
-			SceneManager.LoadScene (sceneToLoad);
-		}
 	}
 
 
