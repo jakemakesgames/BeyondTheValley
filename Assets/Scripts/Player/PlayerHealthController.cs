@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealthController : MonoBehaviour {
 
+
 	// The amount of health the player has
 	public int health;
 	// The total amount of health the player has

@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour {
 
 	#region COMPONENTS AND VARIABLES
 
+	// Bool to make the gameObject "DONT DESTYR"
+	private static bool created = false;
+
 	// Unity Components
 	[SerializeField] private Rigidbody2D rb2D;
 	public XboxController controller;
@@ -41,6 +44,16 @@ public class PlayerController : MonoBehaviour {
 	private float shootingTimer; // shootingTimer does need to be a public variable
 	public float timeBetweenShots;
 
+	#endregion
+
+	#region DONT DESTROY ON LOAD FUNCTION
+	void Awake(){
+		if (!created) {
+			DontDestroyOnLoad (this.gameObject);
+			created = true;
+			Debug.Log ("Awake: " + this.gameObject);
+		}
+	}
 	#endregion
 
 	void Start(){
