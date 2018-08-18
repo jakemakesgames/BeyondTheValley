@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Wall
   - GameOverUI
+  - SpawnPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
