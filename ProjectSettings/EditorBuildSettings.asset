@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Proof of Concept/playground 1.unity
     guid: a9eb4d31be1d67940a6a8b142da0b088
+  - enabled: 1
+    path: Assets/Scenes/Proof of Concept/procGen_LevelTest.unity
+    guid: c3a79545c53a2614484752639d8ffe6b
   m_configObjects: {}
