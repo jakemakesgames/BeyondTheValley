@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour {
 	// Projectile and Bomb Prefabs
 	[Header("Projectile Prefabs")]
 	public GameObject projectileOBJ;
+	public GameObject projectileInst;	// Particle effect when the projectile is instantiated
 	public GameObject bombOBJ;
 	public int bombCount;
 	public Text bombCountText;
@@ -121,6 +122,8 @@ public class PlayerController : MonoBehaviour {
 				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots)
 				{
+					// Call the Instantiate Shot Effect function
+					InstantiateShotEffect();
 					// Instantiate the projectile prefab at -45 on the Z axis.
 					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, -45f));
 					// Reset the timer
@@ -134,6 +137,8 @@ public class PlayerController : MonoBehaviour {
 				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots)
 				{
+					// Call the Instantiate Shot Effect function
+					InstantiateShotEffect();
 					// Instantiate the projectile prefab at 45 on the Z axis.
 					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 45f));
 					// Reset the timer
@@ -147,6 +152,8 @@ public class PlayerController : MonoBehaviour {
 				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots)
 				{
+					// Call the Instantiate Shot Effect function
+					InstantiateShotEffect();
 					// Instantiate the projectile prefab at -135 on the Z axis
 					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, -135f));
 					// Reset the timer
@@ -160,6 +167,8 @@ public class PlayerController : MonoBehaviour {
 				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots)
 				{
+					// Call the Instantiate Shot Effect function
+					InstantiateShotEffect();
 					// Instantiate the projectile prefab at 135 on the Z axis
 					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 135f));
 					// Reset the timer
@@ -175,6 +184,8 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetKey(KeyCode.UpArrow)){
 				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots){
+					// Call the Instantiate Shot Effect function
+					InstantiateShotEffect();
 					// Instantiate the projectile prefab
 					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
 					// Reset the timer
@@ -184,6 +195,8 @@ public class PlayerController : MonoBehaviour {
 			} else if (Input.GetKey(KeyCode.RightArrow)){
 				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots){
+					// Call the Instantiate Shot Effect function
+					InstantiateShotEffect();
 					// Instantiate the projectile prefab
 					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 270.0f));
 					// Reset the timer
@@ -193,6 +206,8 @@ public class PlayerController : MonoBehaviour {
 			} else if (Input.GetKey(KeyCode.DownArrow)){
 				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots){
+					// Call the Instantiate Shot Effect function
+					InstantiateShotEffect();
 					// Instantiate the projectile prefab
 					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 180.0f));
 					// Reset the timer
@@ -201,6 +216,8 @@ public class PlayerController : MonoBehaviour {
 			// If the Left ARROW is pressed, Instantiate a bullet with the rotation of 0, 0, 270.
 			} else if (Input.GetKey(KeyCode.LeftArrow)){
 				if (Time.time - shootingTimer > timeBetweenShots){
+					// Call the Instantiate Shot Effect function
+					InstantiateShotEffect();
 					// Instantiate the projectile prefab
 					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f));
 					// Reset the timer
@@ -224,8 +241,8 @@ public class PlayerController : MonoBehaviour {
 				
 			#endregion
 
-			}
 		}
+	}
 
 	void FixedUpdate(){
 
@@ -240,6 +257,14 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		#endregion
+	}
+
+	// This function Instantiates a small particle effect when the player fires a projectile
+	void InstantiateShotEffect(){
+		// Instantiate the particle effect
+		GameObject particle = Instantiate(projectileInst, transform.position, Quaternion.identity) as GameObject;
+		// Destroy the particle effect after 1 second.
+		Destroy(particle, 1f);
 	}
 
 	public void UpdateBombUI(){
