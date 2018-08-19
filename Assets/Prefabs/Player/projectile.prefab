@@ -91,6 +91,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 1
   scoreMultiplier: 10
+  particleEffect: {fileID: 1006631276247744, guid: 3f33e111ccee0874b942da0d69c44920,
+    type: 2}
   moveSpeed: 125
   gm: {fileID: 0}
 --- !u!212 &212541463088993562

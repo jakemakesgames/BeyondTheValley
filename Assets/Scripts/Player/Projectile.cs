@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour {
 
 	public int damageAmount;
 	public int scoreMultiplier;
+	public GameObject particleEffect;
 
 	[SerializeField] private float moveSpeed;
 	[SerializeField] GameManager gm;
@@ -31,12 +32,18 @@ public class Projectile : MonoBehaviour {
 			// Add score
 			gm.AddScore(scoreMultiplier);
 			// Instantiate particle effect
+			GameObject particle = Instantiate(particleEffect, transform.position, Quaternion.identity) as GameObject;
+			// Destroy the particle effect after 1 second
+			Destroy (particle, 1f);
 			// Destroy the gameObject
 			Destroy(gameObject);
 		}
 		// If the projectile collides with another GameObject tagged "Wall" -> Destroy the projectile
 		if (other.tag == "Wall") {
 			// Instantiate particle effect
+			GameObject particle = Instantiate(particleEffect, transform.position, Quaternion.identity) as GameObject;
+			// Destroy the particle effect after 1 second
+			Destroy (particle, 1f);
 			// Destroy the gameObject
 			Destroy(gameObject);
 		}
