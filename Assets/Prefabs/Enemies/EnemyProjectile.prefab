@@ -70,6 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 80
   damageAmount: 1
+  projectileEffect: {fileID: 1513945007070804, guid: 4fb247b6e81785943be357834aaf30f1,
+    type: 2}
   player: {fileID: 0}
   target: {x: 0, y: 0}
 --- !u!212 &212956489713900350

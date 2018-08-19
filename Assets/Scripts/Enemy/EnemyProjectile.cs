@@ -7,6 +7,7 @@ public class EnemyProjectile : MonoBehaviour {
 	#region COMPONENTS AND VARIABLES
 	public float speed;
 	public int damageAmount;
+	public GameObject projectileEffect;	// Particle effect that is Instantiated when the projectile is fired
 
 	[SerializeField] private Transform player;
 	[SerializeField] private Vector2 target;
@@ -50,11 +51,19 @@ public class EnemyProjectile : MonoBehaviour {
 			player.GetComponent<PlayerHealthController>().HurtPlayer(damageAmount);
 			DestroyProjectile ();
 		}
+		// If the projectile collides with an object tagged as "Wall" -> Do the thing
+		if (other.tag == "Wall") {
+			// Call the DestroyProjectile function
+			DestroyProjectile ();
+		}
 		
 	}
 
 	void DestroyProjectile(){
 		// Instantiate a particle effect
+		GameObject effect = Instantiate(projectileEffect, transform.position, Quaternion.identity) as GameObject;
+		// Destroy the Particle Effect after 1 second.
+		Destroy(effect, 1f);
 		// Destroy this gameObject
 		Destroy(gameObject);
 	}
