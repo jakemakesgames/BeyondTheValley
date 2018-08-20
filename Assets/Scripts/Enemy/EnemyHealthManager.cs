@@ -7,6 +7,8 @@ public class EnemyHealthManager : MonoBehaviour {
 	[SerializeField] private EnemyController enemyController;
 	[SerializeField] private GameManager gm;
 	public int scoreValue;
+	[HideInInspector] public bool isDead = false;
+	public Room room;
 
 	[Header("Enemy Health")]
 	public int health;
@@ -21,6 +23,7 @@ public class EnemyHealthManager : MonoBehaviour {
 
 		// Setting the health variable to the enemy scriptable health value attached to this GameObject
 		//health = enemyController.health;
+		room = FindObjectOfType<Room>();
 
 	}
 
@@ -51,6 +54,7 @@ public class EnemyHealthManager : MonoBehaviour {
 		gm.GetComponent<GameManager>().ItemDrop(enemyDeathSpot);
 		// Add score
 		gm.AddScore(scoreValue);
+		room.enemiesInRoom.Remove (this.gameObject);
 		// Destroy this enemy
 		Destroy(this.gameObject);
 		}

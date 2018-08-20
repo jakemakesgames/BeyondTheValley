@@ -11,6 +11,7 @@ TagManager:
   - GameOverUI
   - SpawnPoint
   - Rooms
+  - Door
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour {
 
 	public GameObject[] enemies;
 
-	void Start(){
+	void Awake(){
 		// Call  the SpawnEnemy function
 		SpawnEnemy();
 	}
