@@ -1050,11 +1050,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: bombCountText
-      value: 
-      objectReference: {fileID: 1538658112}
     - target: {fileID: 114358443107429294, guid: b79bdfa7c0de1234db1625366c329956,
         type: 2}
       propertyPath: hearts.Array.data[0]
@@ -1105,17 +1100,6 @@ Prefab:
       propertyPath: hearts.Array.data[9]
       value: 
       objectReference: {fileID: 1159935147}
-    - target: {fileID: 212284341456932882, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 995
-      objectReference: {fileID: 0}
-    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: projectileOBJ
-      value: 
-      objectReference: {fileID: 1395084410240796, guid: e3de8ab2232ad4a419760c425ac017a5,
-        type: 2}
     - target: {fileID: 114358443107429294, guid: b79bdfa7c0de1234db1625366c329956,
         type: 2}
       propertyPath: gameOverUI
@@ -1123,10 +1107,9 @@ Prefab:
       objectReference: {fileID: 576039185}
     - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
         type: 2}
-      propertyPath: projectileInst
+      propertyPath: bombCountText
       value: 
-      objectReference: {fileID: 1013605894512258, guid: 10de4cab55b531241a022958bdae1e32,
-        type: 2}
+      objectReference: {fileID: 1538658112}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b79bdfa7c0de1234db1625366c329956, type: 2}
   m_IsPrefabParent: 0

@@ -11,6 +11,8 @@ public class Bomb : MonoBehaviour {
 	public float radius; // This is the radius of the explosion.
 	public int damageAmount; // How much damage will this bomb inflict within the explosion radius.
 
+	public GameObject explosionEffect;	// This is the particle that will play when the bomb explodes
+
 	void Start(){
 		// Countdown's value is equal to the delay's value
 		countdown = delay;
@@ -50,8 +52,10 @@ public class Bomb : MonoBehaviour {
 				nearbyObject.GetComponent<PlayerHealthController>().HurtPlayer (damageAmount);
 			}	
 		}
+		GameObject explode = Instantiate (explosionEffect, transform.position, Quaternion.identity) as GameObject;
 
 		Destroy (gameObject);
+		Destroy (explode, 1f);
 	}
 
 	void OnDrawGizmosSelected(){

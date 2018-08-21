@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1788892026340242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -36, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4651804059133554}
@@ -68,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 1342575994630840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 3, z: 1}
+  m_LocalScale: {x: 2, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4568238253490336}
   m_RootOrder: 0
@@ -134,7 +134,9 @@ MonoBehaviour:
   movementSpeed: 45
   maxSpeed: 5
   usingGamepad: 0
-  projectileOBJ: {fileID: 1291383763489818, guid: e3de8ab2232ad4a419760c425ac017a5,
+  projectileOBJ: {fileID: 1395084410240796, guid: e3de8ab2232ad4a419760c425ac017a5,
+    type: 2}
+  projectileInst: {fileID: 1013605894512258, guid: 10de4cab55b531241a022958bdae1e32,
     type: 2}
   bombOBJ: {fileID: 1597760114922362, guid: ce444d04cfea4b144b8d06d5c26876ef, type: 2}
   bombCount: 2
@@ -166,6 +168,12 @@ MonoBehaviour:
   - {fileID: 0}
   fullHeart: {fileID: 21300000, guid: d3d91b76a5ab0184cb3c1fa5bf22b68d, type: 3}
   emptyHeart: {fileID: 21300000, guid: 1d51f5a9d16dace4daf0f6c48a2a5b5d, type: 3}
+  gameOverUI: {fileID: 0}
+  blinkingTimer: 0
+  blinkingMinDuration: 0.1
+  blinkingTotalTimer: 0
+  blinkingTotalDuration: 1
+  startBlinking: 0
 --- !u!212 &212284341456932882
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -200,9 +208,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 999
+  m_SortingOrder: 995
   m_Sprite: {fileID: 21300000, guid: a1e628482f06ee04f81d74638a5ef842, type: 3}
-  m_Color: {r: 0, g: 0.6460881, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.6911516, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

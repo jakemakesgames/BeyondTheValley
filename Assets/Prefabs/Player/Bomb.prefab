@@ -94,6 +94,8 @@ MonoBehaviour:
   hasExploded: 0
   radius: 20
   damageAmount: 2
+  explosionEffect: {fileID: 1306980336527610, guid: cd1562117b9813746abf016fa292b472,
+    type: 2}
 --- !u!212 &212674521991787068
 SpriteRenderer:
   m_ObjectHideFlags: 1
