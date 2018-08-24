@@ -6,8 +6,14 @@ public class Bomb : MonoBehaviour {
 
 	[Header("General Stats")]
 	public float delay; // This is the time delay between being instantiated and exploding (0 by default).
+	public Vector2 targetScale; // This is how large the bomb will scale overtime
+	public float scaleSpeed; // This is how fast the bomb will scale;
+
+	private SpriteRenderer rend;
+
 	[SerializeField] private float countdown;
 	[SerializeField] private bool hasExploded;	// A bool to check whether or not the bomb has exploded or not.
+
 	public float radius; // This is the radius of the explosion.
 	public int damageAmount; // How much damage will this bomb inflict within the explosion radius.
 
@@ -20,12 +26,18 @@ public class Bomb : MonoBehaviour {
 		countdown = delay;
 		// Find Reference to the Shake GameObject
 		shake = FindObjectOfType<Shake>();
+
+		rend = GetComponent<SpriteRenderer> ();
 	}
 
 	// Potentially have the colour of the bomb slowly change to *red* for the duration of the countdown (?)
 	void Update(){
 		// Time.deltaTime is subtracted from the countdown variable every frame
 		countdown -= Time.deltaTime;
+		transform.localScale = Vector2.Lerp (transform.localScale, targetScale, scaleSpeed * Time.deltaTime);
+
+		// This lerps the colour of the bomb between grey and red, with a Ping Pong effect
+		rend.material.color =  Color.Lerp (Color.white, Color.red, (Mathf.PingPong (Time.time, 0.5f)));
 
 		// If the countdown's value is less than or equal to 0, do the thing
 		if (countdown <= 0 && !hasExploded){

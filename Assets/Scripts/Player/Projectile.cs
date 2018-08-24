@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
+	public float lifeTime;
+	public float lifeTimeCD;	// the lifetime countdown float
+
 	public int damageAmount;
 	public int scoreMultiplier;
 	public GameObject particleEffect;
@@ -17,6 +20,9 @@ public class Projectile : MonoBehaviour {
 		gm = FindObjectOfType<GameManager> ();
 		// Find a reference to the Shake gameObject;
 		shake = FindObjectOfType<Shake>();
+
+		// The Life time countdown is equal to the lifetime value
+		lifeTimeCD = lifeTime;
 	}
 
 	void Update(){
@@ -24,8 +30,14 @@ public class Projectile : MonoBehaviour {
 		// When the projectile is instantaited, move the object by the moveSpeed variable multiplied by Time.deltaTime
 		transform.position += transform.up * moveSpeed * Time.deltaTime;
 
-		// Call the destroy projectile funtion
-		DestroyProjectile();
+		// Start subtracting from the lifeTime countdown by Time.deltaTime;
+		lifeTimeCD -= Time.deltaTime;
+
+		// If the lifeTime countdown value is less than OR equal to zero -> do the thing
+		if (lifeTimeCD <= 0) {
+			// Call the destroy projectile funtion
+			DestroyProjectile();
+		}
 	}
 
 	void OnTriggerEnter2D (Collider2D other){
@@ -62,6 +74,7 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void DestroyProjectile(){
+
 		// Instantiate particle effect
 		GameObject particle = Instantiate(particleEffect, transform.position, Quaternion.identity) as GameObject;
 		// Call the CamMiniShake method
@@ -69,6 +82,8 @@ public class Projectile : MonoBehaviour {
 		// Destroy the particle effect after 1 second
 		Destroy (particle, 1f);
 		// Destroy the gameObject
-		Destroy(gameObject, 1f);
+		Destroy(gameObject);
+	
+
 	}
 }

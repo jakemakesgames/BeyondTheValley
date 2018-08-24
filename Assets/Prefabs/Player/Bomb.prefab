@@ -90,12 +90,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 3
+  targetScale: {x: 0.2, y: 0.2}
+  scaleSpeed: 2
   countdown: 0
   hasExploded: 0
   radius: 20
   damageAmount: 2
   explosionEffect: {fileID: 1306980336527610, guid: cd1562117b9813746abf016fa292b472,
     type: 2}
+  shake: {fileID: 0}
 --- !u!212 &212674521991787068
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -132,7 +135,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 999
   m_Sprite: {fileID: 21300000, guid: 85e67ce9995df7543a2a0dc7466b6e60, type: 3}
-  m_Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
+  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
