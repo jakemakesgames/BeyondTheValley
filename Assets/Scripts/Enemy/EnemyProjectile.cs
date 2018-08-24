@@ -12,6 +12,8 @@ public class EnemyProjectile : MonoBehaviour {
 	[SerializeField] private Transform player;
 	[SerializeField] private Vector2 target;
 
+	[SerializeField] Shake shake;
+
 	#endregion
 
 	void Start(){
@@ -21,6 +23,8 @@ public class EnemyProjectile : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		// The target is now set to the Player's X and Y transform positions
 		target = new Vector2 (player.position.x, player.position.y);
+
+		shake = FindObjectOfType<Shake>();
 
 		#endregion
 	}
@@ -49,6 +53,9 @@ public class EnemyProjectile : MonoBehaviour {
 		if (other.tag == "Player"){
 			// Get a reference to the player's health controller and do some damage
 			player.GetComponent<PlayerHealthController>().HurtPlayer(damageAmount);
+			// Call the CamShake function
+			shake.CamShake ();
+			// Call the DestroyProjectile function
 			DestroyProjectile ();
 		}
 		// If the projectile collides with an object tagged as "Wall" -> Do the thing
@@ -62,6 +69,10 @@ public class EnemyProjectile : MonoBehaviour {
 	void DestroyProjectile(){
 		// Instantiate a particle effect
 		GameObject effect = Instantiate(projectileEffect, transform.position, Quaternion.identity) as GameObject;
+
+		// Call the CamShake function
+		shake.CamShake ();
+
 		// Destroy the Particle Effect after 1 second.
 		Destroy(effect, 1f);
 		// Destroy this gameObject

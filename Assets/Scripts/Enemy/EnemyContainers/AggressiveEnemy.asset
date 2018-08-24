@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySprite: {fileID: 0}
   enemyHealth: 2
-  enemyDamageAmount: 0
+  enemyDamageAmount: 1
   enemyMovementSpeed: 25
   enemyMoveRange: 0
   enemyScoreValue: 10

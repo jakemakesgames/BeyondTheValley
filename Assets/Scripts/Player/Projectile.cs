@@ -10,10 +10,13 @@ public class Projectile : MonoBehaviour {
 
 	[SerializeField] private float moveSpeed;
 	[SerializeField] GameManager gm;
+	[SerializeField] Shake shake;
 
 	void Start(){
 		// Find a reference to the GameManager gameObject 
 		gm = FindObjectOfType<GameManager> ();
+		// Find a reference to the Shake gameObject;
+		shake = FindObjectOfType<Shake>();
 	}
 
 	void Update(){
@@ -33,6 +36,10 @@ public class Projectile : MonoBehaviour {
 			gm.AddScore(scoreMultiplier);
 			// Instantiate particle effect
 			GameObject particle = Instantiate(particleEffect, transform.position, Quaternion.identity) as GameObject;
+
+			// Call the CamMiniShake method
+			shake.CamMiniShake();
+
 			// Destroy the particle effect after 1 second
 			Destroy (particle, 1f);
 			// Destroy the gameObject
@@ -42,6 +49,10 @@ public class Projectile : MonoBehaviour {
 		if (other.tag == "Wall") {
 			// Instantiate particle effect
 			GameObject particle = Instantiate(particleEffect, transform.position, Quaternion.identity) as GameObject;
+
+			// Call the CamMiniShake method
+			shake.CamMiniShake();
+
 			// Destroy the particle effect after 1 second
 			Destroy (particle, 1f);
 			// Destroy the gameObject

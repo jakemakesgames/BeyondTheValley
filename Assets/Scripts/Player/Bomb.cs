@@ -13,9 +13,13 @@ public class Bomb : MonoBehaviour {
 
 	public GameObject explosionEffect;	// This is the particle that will play when the bomb explodes
 
+	[SerializeField] Shake shake;
+
 	void Start(){
 		// Countdown's value is equal to the delay's value
 		countdown = delay;
+		// Find Reference to the Shake GameObject
+		shake = FindObjectOfType<Shake>();
 	}
 
 	// Potentially have the colour of the bomb slowly change to *red* for the duration of the countdown (?)
@@ -53,6 +57,9 @@ public class Bomb : MonoBehaviour {
 			}	
 		}
 		GameObject explode = Instantiate (explosionEffect, transform.position, Quaternion.identity) as GameObject;
+
+		// Call the CamShake function
+		shake.CamShake ();
 
 		Destroy (gameObject);
 		Destroy (explode, 1f);
