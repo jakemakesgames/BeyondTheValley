@@ -24,7 +24,8 @@ public class Projectile : MonoBehaviour {
 		// When the projectile is instantaited, move the object by the moveSpeed variable multiplied by Time.deltaTime
 		transform.position += transform.up * moveSpeed * Time.deltaTime;
 
-		Destroy (gameObject, 1f);
+		// Call the destroy projectile funtion
+		DestroyProjectile();
 	}
 
 	void OnTriggerEnter2D (Collider2D other){
@@ -58,5 +59,16 @@ public class Projectile : MonoBehaviour {
 			// Destroy the gameObject
 			Destroy(gameObject);
 		}
+	}
+
+	void DestroyProjectile(){
+		// Instantiate particle effect
+		GameObject particle = Instantiate(particleEffect, transform.position, Quaternion.identity) as GameObject;
+		// Call the CamMiniShake method
+		shake.CamMiniShake();
+		// Destroy the particle effect after 1 second
+		Destroy (particle, 1f);
+		// Destroy the gameObject
+		Destroy(gameObject, 1f);
 	}
 }
