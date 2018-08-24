@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour {
 		// When the projectile is instantaited, move the object by the moveSpeed variable multiplied by Time.deltaTime
 		transform.position += transform.up * moveSpeed * Time.deltaTime;
 
-		Destroy (gameObject, 5f);
+		Destroy (gameObject, 1f);
 	}
 
 	void OnTriggerEnter2D (Collider2D other){

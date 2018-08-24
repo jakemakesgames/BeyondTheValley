@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour {
 				if (Time.time - shootingTimer > timeBetweenShots)
 				{
 					// Instantiate the projectile prefab at -45 on the Z axis.
-					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, -45f));
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(-40.0f, -50.0f))); // The Random Range creates a bullet spread effect
 					// Reset the timer
 					shootingTimer = Time.time;
 				}
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour {
 				if (Time.time - shootingTimer > timeBetweenShots)
 				{
 					// Instantiate the projectile prefab at 45 on the Z axis.
-					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 45f));
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(40.0f, 50.0f))); // The Random Range creates a bullet spread effect
 					// Reset the timer
 					shootingTimer = Time.time;
 				}
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour {
 				{
 					
 					// Instantiate the projectile prefab at -135 on the Z axis
-					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, -135f));
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(-130.0f, -140.0f))); // The Random Range creates a bullet spread effect
 					// Reset the timer
 					shootingTimer = Time.time;
 				}
@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour {
 				if (Time.time - shootingTimer > timeBetweenShots)
 				{
 					// Instantiate the projectile prefab at 135 on the Z axis
-					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 135f));
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(130.0f, 140.0f))); // The Random Range creates a bullet spread effect
 					// Reset the timer
 					shootingTimer = Time.time;
 				}
@@ -178,7 +178,7 @@ public class PlayerController : MonoBehaviour {
 				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots){
 					// Instantiate the projectile prefab
-					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(-2.0f, 2.0f))); // The Random Range creates a bullet spread effect
 					// Reset the timer
 					shootingTimer = Time.time;
 				}
@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour {
 				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots){
 					// Instantiate the projectile prefab
-					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 270.0f));
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(265.0f, 275.0f))); // The Random Range creates a bullet spread effect
 					// Reset the timer
 					shootingTimer = Time.time;
 				}
@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour {
 				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots){
 					// Instantiate the projectile prefab
-					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 180.0f));
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(175.0f, 185.0f))); // The Random Range creates a bullet spread effect
 					// Reset the timer
 					shootingTimer = Time.time;
 				}
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour {
 			} else if (Input.GetKey(KeyCode.LeftArrow)){
 				if (Time.time - shootingTimer > timeBetweenShots){
 					// Instantiate the projectile prefab
-					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f));
+					GameObject projectile = Instantiate(projectileOBJ, transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(85.0f, 95.0f))); // The Random Range creates a bullet spread effect
 					// Reset the timer
 					shootingTimer = Time.time;
 					}
