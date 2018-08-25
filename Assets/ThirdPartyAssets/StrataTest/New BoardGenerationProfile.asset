@@ -16,5 +16,4 @@ MonoBehaviour:
   boardVerticalSize: 100
   boardLibrary: {fileID: 11400000, guid: 693335f63bac8194a94d6d4d25cd4594, type: 2}
   generators:
-  - {fileID: 11400000, guid: 93f4e1a608bf3ff4487772d72b67e36d, type: 2}
   - {fileID: 11400000, guid: 6ec861e371204344a89197e793aacf9e, type: 2}
