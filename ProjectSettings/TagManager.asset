@@ -12,6 +12,9 @@ TagManager:
   - SpawnPoint
   - Rooms
   - Door
+  - Head
+  - LHead
+  - RHead
   layers:
   - Default
   - TransparentFX
