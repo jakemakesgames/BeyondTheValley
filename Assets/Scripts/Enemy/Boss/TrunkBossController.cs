@@ -44,7 +44,7 @@ public class TrunkBossController : MonoBehaviour {
 	#endregion
 
 	#region STATES
-	public enum State {idle, angry, lastStand};
+	public enum State {idle, angry, rage, lastStand};
 	public State bossState;
 	public State curState;
 
@@ -80,13 +80,12 @@ public class TrunkBossController : MonoBehaviour {
 				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 				if (Time.time - shootingTimer > timeBetweenShots) {
 					// Instantiate the projectile prefab at 135 on the Z axis
-					GameObject projectileOBJR = Instantiate (projectile, rightHead.transform.position, Quaternion.Euler (0.0f, 0.0f, Random.Range (-130.0f, -140.0f))); // The Random Range creates a bullet spread effect
+					GameObject projectileOBJR = Instantiate (projectile, rightHead.transform.position, Quaternion.identity);
 					Debug.Log ("Shot Right");
 					// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 					if (Time.time - shootingTimer > timeBetweenShots) {
 						// Instantiate the projectile prefab at 135 on the Z axis
-						GameObject projectileOBJL = Instantiate (projectile, leftHead.transform.position, Quaternion.Euler (0.0f, 0.0f, Random.Range (130.0f, 140.0f))); // The Random Range creates a bullet spread effect
-						Debug.Log ("Shot Left");
+						GameObject projectileOBJL = Instantiate (projectile, leftHead.transform.position, Quaternion.identity);
 						// Reset the timer
 						shootingTimer = Time.time;
 					}
@@ -129,20 +128,39 @@ public class TrunkBossController : MonoBehaviour {
 		}
 		#endregion
 
-		#region PHASE 3 - LAST STAND
+		#region PHASE 3 - RAGE
 		// If tge Boss State is equal to LastStand (PHASE 3)
-		if (bossState == State.lastStand){
-			// Set the movement speed to the lastStandSpeed;
-			speed = lastStandSpeed;
+		if (bossState == State.rage){
 
-			// If the Player is NOT null -> DO the thing
+			// If the Player is NOT null -> Move towards the player
 			if (target != null){
 				// Move towards the player at the speed multiplied by Time.deltaTime
 				transform.position = Vector2.MoveTowards (transform.position, target.transform.position, speed * Time.deltaTime);
-			}	
+			}
+
+			// Shoot towards the player from the Main Head
+			if (Time.time - shootingTimer > timeBetweenShots) {
+				// Instantiate the projectile prefab at 135 on the Z axis
+				GameObject projectileOBJ = Instantiate (projectile, mainHead.transform.position, Quaternion.identity); // The Random Range creates a bullet spread effect
+				Debug.Log ("Shot Right");
+				shootingTimer = Time.time;
+			}
+
 		}
 		#endregion
 
+		#region PHASE 4 - LAST STAND
+		if (bossState == State.lastStand){
+			// Shoot out in all 4 directions?
+			#region INSTANTIATE PROJECTILES
+
+
+
+			#endregion
+		}
+
+
+		#endregion
 	}
 }
 
