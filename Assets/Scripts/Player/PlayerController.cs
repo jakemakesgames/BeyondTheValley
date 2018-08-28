@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
 
 		#region REFERENCING COMPONENTS/ SETTING VALUES
 		// The rb2D varible is set the to Rigidbody 2D component on the Player GameObject
-		rb2D = GetComponent<Rigidbody2D> ();
+		rb2D = GetComponent<Rigidbody2D>();
 
 		// Set the bomb text to the bomb count
 		bombCountText.text = bombCount.ToString();

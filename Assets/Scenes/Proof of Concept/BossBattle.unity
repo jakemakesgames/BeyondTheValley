@@ -2097,6 +2097,8 @@ MonoBehaviour:
   lHead: {fileID: 1132917105}
   rHead: {fileID: 1546289451}
   headsSpawned: 0
+  bulletHellProj: {fileID: 1362437828357858, guid: 6b53e6e3e747dc44a8536610cd54b17b,
+    type: 2}
   target: {fileID: 0}
   speed: 0
   angryMoveSpeed: 20

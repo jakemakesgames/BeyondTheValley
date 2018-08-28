@@ -732,7 +732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &366360401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,6 +1022,16 @@ Prefab:
         type: 2}
       propertyPath: maxSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
+        type: 2}
+      propertyPath: startDashTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
+        type: 2}
+      propertyPath: dashSpeed
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b79bdfa7c0de1234db1625366c329956, type: 2}
