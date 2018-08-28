@@ -2009,7 +2009,7 @@ GameObject:
   - component: {fileID: 994493525}
   m_Layer: 0
   m_Name: TrunkBoss
-  m_TagString: Enemy
+  m_TagString: TrunkBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2065,16 +2065,17 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 994493524}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81d02e96193deda4a8c9e2606673c5fe, type: 3}
+  m_Script: {fileID: 11500000, guid: debe9440deb5d944fa720f4df49ad835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyController: {fileID: 0}
+  tbc: {fileID: 0}
   gm: {fileID: 0}
   scoreValue: 0
   isDead: 0
-  health: 100
+  startHealth: 80
+  health: 0
 --- !u!114 &994493528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2093,9 +2094,16 @@ MonoBehaviour:
   hasRightHead: 1
   enemyHealthManager: {fileID: 0}
   projectile: {fileID: 1670537607306812, guid: a22a8edf34c4f344a9bffb011da5463c, type: 2}
-  lHead: {fileID: 0}
-  rHead: {fileID: 0}
+  lHead: {fileID: 1132917105}
+  rHead: {fileID: 1546289451}
+  headsSpawned: 0
+  target: {fileID: 0}
+  speed: 0
+  angryMoveSpeed: 20
+  lastStandSpeed: 40
   timeBetweenShots: 0.75
+  bossState: 0
+  curState: 0
 --- !u!4 &994493529
 Transform:
   m_ObjectHideFlags: 0
@@ -2104,7 +2112,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 994493524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.7, y: 32.9, z: 0}
+  m_LocalPosition: {x: 0, y: 28.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2037413775}

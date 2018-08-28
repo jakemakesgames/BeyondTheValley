@@ -4,19 +4,18 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(EnemyHealthManager))]
 public class TrunkBossController : MonoBehaviour {
 
 	#region COMPONENTS AND VARIABLES
 	// Projectile Transforms
 	[Header("Projectile Transforms")]
-	public GameObject mainHead;
+	public GameObject mainHead;	// The GameObject component of the Boss' Main Head, this will come into play during PHASE 2
 
-	public GameObject leftHead;
-	public bool hasLeftHead;
+	public GameObject leftHead;	// The GameObject component of the Boss' Left Head, used during PHASE 1, while the two heads can shoot
+	public bool hasLeftHead; // Check to see if the Boss HAS his left head
 
-	public GameObject rightHead;
-	public bool hasRightHead;
+	public GameObject rightHead; // The GameObject component of the Boss' Right Head, used during PHASE 1, while the two heads can shoot
+	public bool hasRightHead; // Check to see if the Boss HAS his right head
 
 	// Health Components
 	[Header("Health Components")]
@@ -24,16 +23,18 @@ public class TrunkBossController : MonoBehaviour {
 
 	// Objects for the Boss To Instantiate
 	[Header("Objects To Instantiate")]
-	public GameObject projectile;
-	public GameObject lHead;
-	public GameObject rHead;
+	public GameObject projectile; // The projectile the heads will be shooting during PHASE 1, make this a List later and randomly choose which gameObject to instantiate
+	public GameObject lHead; // Head which instantiate during PHASE 2
+	public GameObject rHead; // Head which instantiate during PHASE 2
 	public bool headsSpawned = false;
 
-	public Transform target;
+	[Header("Movement Variables")]
+	[SerializeField] private Transform target; // The Target is the GameObject the Boss will move towards, in this case it is the PLAYEr
 
 	public float speed;
 	[SerializeField] private float angryMoveSpeed; // Set these in the inspector and change the value of the public speed variable above to match these values
 	[SerializeField] private float lastStandSpeed;
+
 
 	// Shooting Timers
 	[Header("Shooting Timers")]
@@ -45,6 +46,7 @@ public class TrunkBossController : MonoBehaviour {
 	#region STATES
 	public enum State {idle, angry, lastStand};
 	public State bossState;
+	public State curState;
 
 	#endregion
 
@@ -56,7 +58,8 @@ public class TrunkBossController : MonoBehaviour {
 
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 
-
+		curState = bossState;
+		Debug.Log (curState);
 		//enemyHealthManager = GetComponent<EnemyHealthManager> ();
 	}
 
@@ -95,7 +98,7 @@ public class TrunkBossController : MonoBehaviour {
 		// Do Phase 2 Here
 		#region PHASE 2 - THE ANGRY PHASE
 		// If the Boss State is equal to Angry -> Do The Thing
-		if (bossState == State.angry){
+		else if (bossState == State.angry){
 			// Set the hasLeftHead & hasRightHead bool to FALSE
 			hasLeftHead = false;
 			hasRightHead = false;
@@ -117,11 +120,26 @@ public class TrunkBossController : MonoBehaviour {
 
 			speed = angryMoveSpeed;
 
+			// If the Player is NOT null -> DO the thing
 			if (target != null){
+				// Move towards the player at the speed multiplied by Time.deltaTime
 				transform.position = Vector2.MoveTowards (transform.position, target.transform.position, speed * Time.deltaTime);
 			}
+			// Add the code for the Boss to shoot projectiles at the player during Phase 2
+		}
+		#endregion
 
+		#region PHASE 3 - LAST STAND
+		// If tge Boss State is equal to LastStand (PHASE 3)
+		if (bossState == State.lastStand){
+			// Set the movement speed to the lastStandSpeed;
+			speed = lastStandSpeed;
 
+			// If the Player is NOT null -> DO the thing
+			if (target != null){
+				// Move towards the player at the speed multiplied by Time.deltaTime
+				transform.position = Vector2.MoveTowards (transform.position, target.transform.position, speed * Time.deltaTime);
+			}	
 		}
 		#endregion
 

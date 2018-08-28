@@ -21,6 +21,7 @@ public class EnemyProjectile : MonoBehaviour {
 		#region REFERENCING COMPONENTS / SETTING VALUES
 		// The player Transform component is equal to the Player GameObject's transform component
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
+
 		// The target is now set to the Player's X and Y transform positions
 		target = new Vector2 (player.position.x, player.position.y);
 

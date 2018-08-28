@@ -15,6 +15,7 @@ TagManager:
   - Head
   - LHead
   - RHead
+  - TrunkBoss
   layers:
   - Default
   - TransparentFX

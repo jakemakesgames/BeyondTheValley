@@ -71,6 +71,24 @@ public class Projectile : MonoBehaviour {
 			// Destroy the gameObject
 			Destroy(gameObject);
 		}
+
+		if (other.tag == "TrunkBoss") {
+			// Deal damage to the enemy
+			other.GetComponent<TrunkBossHealthController> ().TakeDamage (damageAmount);
+			// Add score
+			gm.AddScore(scoreMultiplier);
+			// Instantiate particle effect
+			GameObject particle = Instantiate(particleEffect, transform.position, Quaternion.identity) as GameObject;
+
+			// Call the CamMiniShake method
+			shake.CamMiniShake();
+
+			// Destroy the particle effect after 1 second
+			Destroy (particle, 1f);
+			// Destroy the gameObject
+			Destroy(gameObject);
+
+		}
 	}
 
 	void DestroyProjectile(){
