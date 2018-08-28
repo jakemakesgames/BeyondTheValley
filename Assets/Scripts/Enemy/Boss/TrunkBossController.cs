@@ -28,6 +28,8 @@ public class TrunkBossController : MonoBehaviour {
 	public GameObject rHead; // Head which instantiate during PHASE 2
 	public bool headsSpawned = false;
 	public GameObject bulletHellProj; // Final Phase Projectile
+	public bool shootStraight;
+	public bool shootDiag;
 
 	[Header("Movement Variables")]
 	[SerializeField] private Transform target; // The Target is the GameObject the Boss will move towards, in this case it is the PLAYEr
@@ -67,6 +69,9 @@ public class TrunkBossController : MonoBehaviour {
 	void Start(){
 		bossState = State.idle;
 		Debug.Log (bossState);
+
+		shootStraight = true;
+		shootDiag = false;
 	}
 
 	void Update ()
@@ -156,42 +161,35 @@ public class TrunkBossController : MonoBehaviour {
 			// Shoot out in all 4 directions?
 			#region INSTANTIATE PROJECTILES
 			// Instantiate UP
-			if (Time.time - shootingTimer > timeBetweenShots) {
-				// Instantiate the projectile prefab at 135 on the Z axis
-				GameObject projUP = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f)); // The Random Range creates a bullet spread effect
-				GameObject projDOWN = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 180.0f));
-				GameObject projLEFT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f));
-				GameObject projRIGHT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 270.0f));
-
-				Debug.Log ("Shot Up");
-				shootingTimer = Time.time;
+			if (shootStraight){
+				if (Time.time - shootingTimer > timeBetweenShots) {
+					// Instantiate the projectile prefab at 135 on the Z axis
+					GameObject projUP = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f)); // The Random Range creates a bullet spread effect
+					GameObject projDOWN = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 180.0f));
+					GameObject projLEFT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f));
+					GameObject projRIGHT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 270.0f));
+					shootingTimer = Time.time;
+					shootDiag = true;
+					shootStraight = false;
+				}
 			}
-//			// Instantiate DOWN
-//			if (Time.time - shootingTimer > timeBetweenShots) {
-//				// Instantiate the projectile prefab at 135 on the Z axis
-//				GameObject projDOWN = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 180.0f)); // The Random Range creates a bullet spread effect
-//				Debug.Log ("Shot Down");
-//				shootingTimer = Time.time;
-//			}
-//			// Instantiate LEFT
-//			if (Time.time - shootingTimer > timeBetweenShots) {
-//				// Instantiate the projectile prefab at 135 on the Z axis
-//				GameObject projLEFT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f)); // The Random Range creates a bullet spread effect
-//				Debug.Log ("Shot Left");
-//				shootingTimer = Time.time;
-//			}
-//			// Instantiate RIGHT
-//			if (Time.time - shootingTimer > timeBetweenShots) {
-//				// Instantiate the projectile prefab at 135 on the Z axis
-//				GameObject projRIGHT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 2.0f)); // The Random Range creates a bullet spread effect
-//				Debug.Log ("Shot Right");
-//				shootingTimer = Time.time;
-//			}
 
+			if (shootDiag){
+				if (Time.time - shootingTimer > timeBetweenShots && shootDiag) {
+
+					// Instantiate the projectile prefab at 135 on the Z axis
+					GameObject projUPLEFT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 45.0f)); // The Random Range creates a bullet spread effect
+					GameObject projDOWNLEFT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 135.0f));
+					GameObject projUPRIGHT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, -45.0f));
+					GameObject projDOWNRIGHT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, -135.0f));
+					shootingTimer = Time.time;
+					shootStraight = true;
+					shootDiag = false;
+				}
+		
+			}
 			#endregion
 		}
-
-
 		#endregion
 	}
 }

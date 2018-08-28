@@ -2099,6 +2099,8 @@ MonoBehaviour:
   headsSpawned: 0
   bulletHellProj: {fileID: 1362437828357858, guid: 6b53e6e3e747dc44a8536610cd54b17b,
     type: 2}
+  shootStraight: 0
+  shootDiag: 0
   target: {fileID: 0}
   speed: 0
   angryMoveSpeed: 20
