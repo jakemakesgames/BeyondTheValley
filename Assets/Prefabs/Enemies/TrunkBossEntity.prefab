@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4489992430611382}
   - component: {fileID: 212502264836267758}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114825909570667842}
   - component: {fileID: 114154410806064136}
   - component: {fileID: 114990503795418158}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TrunkBossEntity
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   target: {fileID: 0}
   eS: {fileID: 11400000, guid: 4be5a2686112bb94db186b0127ce7b03, type: 2}
   enemyType: 1
-  speed: 0
+  speed: 40
   stoppingDistance: 50
   retreatDistance: 40
   startTimeBetweenShots: 1

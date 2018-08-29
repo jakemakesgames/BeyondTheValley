@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrunkBossHealthController : MonoBehaviour {
 
@@ -12,11 +13,19 @@ public class TrunkBossHealthController : MonoBehaviour {
 	public float startHealth;
 	public float health;
 
+	private GameObject healthBar;
+	public Image healthBarImg;
+
+	public GameObject deathParticleEffect;
+
 	void Start(){
 		// Get reference to the TrunkBossController
 		tbc = FindObjectOfType<TrunkBossController> ();
 		// Set the health to the starting health
 		health = startHealth;
+
+		// Get referencce to the HealthBar GameObject
+		healthBar = GameObject.FindGameObjectWithTag("BossHB");
 	}
 
 	void Update(){
@@ -48,5 +57,26 @@ public class TrunkBossHealthController : MonoBehaviour {
 
 	public void TakeDamage(int damageToDeal){
 		health -= damageToDeal;
+
+		healthBarImg.fillAmount = health / startHealth;
+
+		if (health <= 0) {
+			// Call the Die function
+			Die();
+		}
 	} 
+
+	void Die(){
+		// Disable the TrunkBossController so the boss can no longer shoot
+		tbc.enabled = false;
+		// Destroy the HealthBar
+		Destroy(healthBar);
+		// Instantiate the death particle effect
+		GameObject deathFX = Instantiate(deathParticleEffect, transform.position, Quaternion.identity) as GameObject;
+		// Destroy the Game Object
+		Destroy(this.gameObject);
+		// Destroy the particle effect
+		Destroy(deathFX, 1f);
+
+	}
 }

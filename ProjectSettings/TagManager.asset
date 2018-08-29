@@ -16,6 +16,8 @@ TagManager:
   - LHead
   - RHead
   - TrunkBoss
+  - MoveSpot
+  - BossHB
   layers:
   - Default
   - TransparentFX
@@ -25,8 +27,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Boss
+  - BossEntity
   - 
   - 
   - 
