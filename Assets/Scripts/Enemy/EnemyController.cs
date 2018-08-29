@@ -23,6 +23,14 @@ public class EnemyController : MonoBehaviour {
 	public GameObject projectile;
 	bool canShoot = true;
 
+	[Header("Boss Entity Variables")]
+	public bool isBossEntity;
+	public List<GameObject> moveSpot;
+	public int randSpot;
+
+	private float waitTime;
+	public float startWaitTime;
+
 	#endregion
 
 	void Start(){
@@ -33,10 +41,29 @@ public class EnemyController : MonoBehaviour {
 
 		// Call the EnemyTypeCheck function
 		EnemyTypeCheck ();
-		speed = eS.enemyMovementSpeed;
-
+		if(!isBossEntity){
+			speed = eS.enemyMovementSpeed;
+		}
 		// Set the timeBetweenShots value equal to the startTimeBetweenShots value
 		timeBetweenShots = startTimeBetweenShots;
+		#endregion
+
+		#region SETTING BOSS ENTITY VALUES
+		// If this enemy IS a boss entity
+		if (isBossEntity){
+			// Set the wait time's value equal to the startWaitTime's value
+			waitTime = startWaitTime;
+
+			// For each GameObject with the Tag "MoveSpot" in the scene -> add it to the moveSpot list
+			foreach (GameObject spot in GameObject.FindGameObjectsWithTag("MoveSpot")) {
+				moveSpot.Add(spot);
+			}
+
+
+			// Set the random spot equal to a random posiion between zero and the max count of the move spots list
+			randSpot = Random.Range(0, moveSpot.Count);
+		}
+
 		#endregion
 	}
 
@@ -62,25 +89,65 @@ public class EnemyController : MonoBehaviour {
 
 	void Update(){
 
-		// If the target does not exist
-		if (target == null) {
-			// Destroy the Object
-			HardDestroy();
+		if (!isBossEntity) {
+			// If the target does not exist
+			if (target == null) {
+				// Destroy the Object
+				HardDestroy();
+			}
+
+			#region ENEMY TYPE CHECK
+			if (enemyType == type.ranged) {
+
+				// Call the RangedBehaviour function. This function contains all of the code needed to move the Ranged AI as intended (ie Moving/ Retreating and Shooting)
+				RangedBehaviour();
+
+			} else if (enemyType == type.aggressive) {
+
+				// Call the AggressiveBehaviour function. This function contains all of the code needed to move the Aggressive AI as intended.
+				AggressiveBehaviour ();
+			}
+			#endregion
+
 		}
 
-		#region ENEMY TYPE CHECK
-		if (enemyType == type.ranged) {
-			
-			// Call the RangedBehaviour function. This function contains all of the code needed to move the Ranged AI as intended (ie Moving/ Retreating and Shooting)
-			RangedBehaviour();
+		// Add this into an enemy type later on, call type checks etc.
+		if (isBossEntity) {
+			// If the player is still alive
+			if (target != null) {
+				transform.position = Vector2.MoveTowards (transform.position, moveSpot[randSpot].transform.position, speed * Time.deltaTime);
 
-		} else if (enemyType == type.aggressive) {
-			
-			// Call the AggressiveBehaviour function. This function contains all of the code needed to move the Aggressive AI as intended.
-			AggressiveBehaviour ();
+				// If the enemy HAS reached the random position, move to another
+				if (Vector2.Distance(transform.position, moveSpot[randSpot].transform.position) < 0.2f){
+					// If the wait time is less than OR equal to zero
+					if (waitTime <= 0) {
+						// Set the random spot equal to a random posiion between zero and the max count of the move spots list
+						randSpot = Random.Range(0, moveSpot.Count);
+						waitTime = startWaitTime;
+					} else {
+						// Slowly decrease Time.delatTime from the waitTime value
+						waitTime -= Time.deltaTime;
+					}
+				}
+
+				#region SHOOTING BEHAVIOURS
+				if (canShoot){
+					
+						// If the timeBetweenShots value is LESS THAN or equal to 0 -> Do the thing
+						if (timeBetweenShots <= 0) {
+							// Instantiate a projectile at 0, 0, 0
+							Instantiate(projectile, transform.position, Quaternion.identity);
+							//Reset the shooting timer
+							timeBetweenShots = startTimeBetweenShots;
+							// Else subtract Time.deltaTime from the timeBetweenShots value
+						} else {
+							timeBetweenShots -= Time.deltaTime;
+						}
+				}
+
+				#endregion
+			}
 		}
-		#endregion
-
 	}
 
 	void AggressiveBehaviour(){
