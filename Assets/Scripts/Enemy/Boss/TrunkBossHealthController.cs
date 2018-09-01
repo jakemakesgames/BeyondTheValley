@@ -15,6 +15,7 @@ public class TrunkBossHealthController : MonoBehaviour {
 
 	private GameObject healthBar;
 	public Image healthBarImg;
+	public Text healthText;
 
 	public GameObject deathParticleEffect;
 
@@ -26,9 +27,12 @@ public class TrunkBossHealthController : MonoBehaviour {
 
 		// Get referencce to the HealthBar GameObject
 		healthBar = GameObject.FindGameObjectWithTag("BossHB");
+		healthText.text = health.ToString ();
 	}
 
 	void Update(){
+
+		healthText.text = health.ToString ();
 
 		// ANGRY
 		if (health <= 75f) {
