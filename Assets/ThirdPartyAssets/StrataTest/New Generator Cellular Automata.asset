@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa0022688b5c58408ed42372d880222, type: 3}
   m_Name: New Generator Cellular Automata
   m_EditorClassIdentifier: 
-  overwriteFilledSpaces: 1
+  overwriteFilledSpaces: 0
   generatesEmptySpace: 1
   charForFill: 66
   emptySpaceChar: 87
-  useRandomSeed: 0
-  randomFillPercent: 13
+  useRandomSeed: 1
+  randomFillPercent: 41

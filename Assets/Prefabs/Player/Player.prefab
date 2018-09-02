@@ -68,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 1342575994630840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 3.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4568238253490336}
   m_RootOrder: 0
@@ -131,17 +131,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2D: {fileID: 0}
   controller: 1
-  movementSpeed: 45
-  maxSpeed: 5
+  movementSpeed: 60
+  maxSpeed: 10
   usingGamepad: 0
-  projectileOBJ: {fileID: 1395084410240796, guid: e3de8ab2232ad4a419760c425ac017a5,
+  projectileOBJ: {fileID: 1273396681887052, guid: e3de8ab2232ad4a419760c425ac017a5,
     type: 2}
   projectileInst: {fileID: 1013605894512258, guid: 10de4cab55b531241a022958bdae1e32,
     type: 2}
   bombOBJ: {fileID: 1597760114922362, guid: ce444d04cfea4b144b8d06d5c26876ef, type: 2}
   bombCount: 2
   bombCountText: {fileID: 0}
-  timeBetweenShots: 0.35
+  timeBetweenShots: 0.25
 --- !u!114 &114358443107429294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,8 +209,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 995
-  m_Sprite: {fileID: 21300000, guid: a1e628482f06ee04f81d74638a5ef842, type: 3}
-  m_Color: {r: 0, g: 0.6911516, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 10a095e3cbaa90f44bad3ad515e08e2d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
