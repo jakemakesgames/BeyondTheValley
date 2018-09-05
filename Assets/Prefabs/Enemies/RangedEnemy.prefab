@@ -54,8 +54,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1421700266987350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 42.9, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4940543328462626}
   m_Father: {fileID: 0}
@@ -103,7 +103,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.08933735, y: 0.04794526}
@@ -133,6 +133,7 @@ MonoBehaviour:
   enemyController: {fileID: 0}
   gm: {fileID: 0}
   scoreValue: 50
+  isDead: 0
   health: 2
 --- !u!114 &114765804082505996
 MonoBehaviour:
@@ -161,10 +162,14 @@ MonoBehaviour:
   eS: {fileID: 11400000, guid: 7e046e352fba1c34aa497001c53e1988, type: 2}
   enemyType: 0
   speed: 0
-  stoppingDistance: 50
-  retreatDistance: 40
-  startTimeBetweenShots: 1
+  stoppingDistance: 40
+  retreatDistance: 30
+  startTimeBetweenShots: 1.5
   projectile: {fileID: 1670537607306812, guid: a22a8edf34c4f344a9bffb011da5463c, type: 2}
+  isBossEntity: 0
+  moveSpot: []
+  randSpot: 0
+  startWaitTime: 0
 --- !u!212 &212978630158771946
 SpriteRenderer:
   m_ObjectHideFlags: 1

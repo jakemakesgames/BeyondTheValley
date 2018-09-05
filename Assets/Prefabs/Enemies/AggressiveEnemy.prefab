@@ -103,7 +103,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.08933735, y: 0.04794526}
@@ -138,6 +138,10 @@ MonoBehaviour:
   retreatDistance: 40
   startTimeBetweenShots: 1
   projectile: {fileID: 1670537607306812, guid: a22a8edf34c4f344a9bffb011da5463c, type: 2}
+  isBossEntity: 0
+  moveSpot: []
+  randSpot: 0
+  startWaitTime: 0
 --- !u!114 &114374096340102426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,6 +156,7 @@ MonoBehaviour:
   enemyController: {fileID: 0}
   gm: {fileID: 0}
   scoreValue: 50
+  isDead: 0
   health: 2
 --- !u!114 &114603985132856342
 MonoBehaviour:
