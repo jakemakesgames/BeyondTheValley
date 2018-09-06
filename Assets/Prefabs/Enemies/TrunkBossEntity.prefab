@@ -154,7 +154,7 @@ MonoBehaviour:
   retreatDistance: 40
   startTimeBetweenShots: 1
   projectile: {fileID: 1670537607306812, guid: a22a8edf34c4f344a9bffb011da5463c, type: 2}
-  isBossEntity: 0
+  isBossEntity: 1
   moveSpot: []
   randSpot: 0
   startWaitTime: 0.15
