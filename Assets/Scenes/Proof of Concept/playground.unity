@@ -1209,9 +1209,10 @@ GameObject:
   - component: {fileID: 678095054}
   - component: {fileID: 678095053}
   - component: {fileID: 678095055}
+  - component: {fileID: 678095056}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1262,6 +1263,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camAnim: {fileID: 671815939}
+--- !u!114 &678095056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 678095052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52016febb8fe9934990372ff49e0162f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesInRoom: []
+  bossLevel: BossBattle
 --- !u!1 &698549291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,7 +2507,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1986802170929778, guid: ac62a474152d6854197e44761fa0c0c7, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac62a474152d6854197e44761fa0c0c7, type: 2}

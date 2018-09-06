@@ -7,6 +7,9 @@ using UnityEngine;
 public class TrunkBossController : MonoBehaviour {
 
 	#region COMPONENTS AND VARIABLES
+	[Header("Encounter Countdown Timer")]
+	public float countdown;
+
 	// Projectile Transforms
 	[Header("Projectile Transforms")]
 	public GameObject mainHead;	// The GameObject component of the Boss' Main Head, this will come into play during PHASE 2
@@ -76,121 +79,127 @@ public class TrunkBossController : MonoBehaviour {
 
 	void Update ()
 	{
-		// Do Phase 1 Here
-		#region PHASE 1 - THE IDLE STATE
-		// If the Boss State is Equal to Idle -> Do the thing
-		if (bossState == State.idle){
-			Debug.Log("Current State: " + bossState);
-			// If the Boss has both of his heads
-			if (hasRightHead && hasLeftHead) {
-				// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
-				if (Time.time - shootingTimer > timeBetweenShots) {
-					// Instantiate the projectile prefab at 135 on the Z axis
-					GameObject projectileOBJR = Instantiate (projectile, rightHead.transform.position, Quaternion.identity);
-					Debug.Log ("Shot Right");
+		countdown -= Time.deltaTime;
+
+		// If the countdown timer is less than or equal to 0 -> start the encounter
+		if (countdown <= 0) {
+			// Do Phase 1 Here
+			#region PHASE 1 - THE IDLE STATE
+			// If the Boss State is Equal to Idle -> Do the thing
+			if (bossState == State.idle){
+				Debug.Log("Current State: " + bossState);
+				// If the Boss has both of his heads
+				if (hasRightHead && hasLeftHead) {
 					// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
 					if (Time.time - shootingTimer > timeBetweenShots) {
 						// Instantiate the projectile prefab at 135 on the Z axis
-						GameObject projectileOBJL = Instantiate (projectile, leftHead.transform.position, Quaternion.identity);
-						Debug.Log("Shot Left");
-						// Reset the timer
-						shootingTimer = Time.time;
+						GameObject projectileOBJR = Instantiate (projectile, rightHead.transform.position, Quaternion.identity);
+						Debug.Log ("Shot Right");
+						// if Time.time minue the shooting timer variable is GREATER THAN the timeBetweenShots variable
+						if (Time.time - shootingTimer > timeBetweenShots) {
+							// Instantiate the projectile prefab at 135 on the Z axis
+							GameObject projectileOBJL = Instantiate (projectile, leftHead.transform.position, Quaternion.identity);
+							Debug.Log("Shot Left");
+							// Reset the timer
+							shootingTimer = Time.time;
+						}
 					}
 				}
 			}
-		}
-		#endregion
+			#endregion
 
-		// Do Phase 2 Here
-		#region PHASE 2 - THE ANGRY PHASE
-		// If the Boss State is equal to Angry -> Do The Thing
-		else if (bossState == State.angry){
-			// Set the hasLeftHead & hasRightHead bool to FALSE
-			hasLeftHead = false;
-			hasRightHead = false;
-			Debug.Log("Current State: " + bossState);
-			// If the Boss does NOT have the left & right heads -> Do The Thing
-			if (!hasRightHead && !hasLeftHead){
-				// If the Boss has NOT spawned the heads -> Spawn Heads
-				if (!headsSpawned){
-					GameObject leftHeadGO = Instantiate (lHead, leftHead.transform.position, Quaternion.identity) as GameObject;
-					GameObject rightHeadGO = Instantiate (rHead, rightHead.transform.position, Quaternion.identity) as GameObject;
-					// Set the headsSpawned bool equal to TRUE (This means NO MORE HEADS can be spawned)
-					headsSpawned = true;
+			// Do Phase 2 Here
+			#region PHASE 2 - THE ANGRY PHASE
+			// If the Boss State is equal to Angry -> Do The Thing
+			else if (bossState == State.angry){
+				// Set the hasLeftHead & hasRightHead bool to FALSE
+				hasLeftHead = false;
+				hasRightHead = false;
+				Debug.Log("Current State: " + bossState);
+				// If the Boss does NOT have the left & right heads -> Do The Thing
+				if (!hasRightHead && !hasLeftHead){
+					// If the Boss has NOT spawned the heads -> Spawn Heads
+					if (!headsSpawned){
+						GameObject leftHeadGO = Instantiate (lHead, leftHead.transform.position, Quaternion.identity) as GameObject;
+						GameObject rightHeadGO = Instantiate (rHead, rightHead.transform.position, Quaternion.identity) as GameObject;
+						// Set the headsSpawned bool equal to TRUE (This means NO MORE HEADS can be spawned)
+						headsSpawned = true;
+					}
 				}
+
+				// Set the Original Heads Active false (This is only temporary as Animations/ Sprites will change later)
+				leftHead.SetActive(false);
+				rightHead.SetActive(false);
+
+				speed = angryMoveSpeed;
+
+				// If the Player is NOT null -> DO the thing
+				if (target != null){
+					// Move towards the player at the speed multiplied by Time.deltaTime
+					transform.position = Vector2.MoveTowards (transform.position, target.transform.position, speed * Time.deltaTime);
+				}
+				// Add the code for the Boss to shoot projectiles at the player during Phase 2
 			}
+			#endregion
 
-			// Set the Original Heads Active false (This is only temporary as Animations/ Sprites will change later)
-			leftHead.SetActive(false);
-			rightHead.SetActive(false);
+			#region PHASE 3 - RAGE
+			// If tge Boss State is equal to LastStand (PHASE 3)
+			if (bossState == State.rage){
 
-			speed = angryMoveSpeed;
+				// If the Player is NOT null -> Move towards the player
+				if (target != null){
+					// Move towards the player at the speed multiplied by Time.deltaTime
+					transform.position = Vector2.MoveTowards (transform.position, target.transform.position, speed * Time.deltaTime);
+				}
 
-			// If the Player is NOT null -> DO the thing
-			if (target != null){
-				// Move towards the player at the speed multiplied by Time.deltaTime
-				transform.position = Vector2.MoveTowards (transform.position, target.transform.position, speed * Time.deltaTime);
-			}
-			// Add the code for the Boss to shoot projectiles at the player during Phase 2
-		}
-		#endregion
-
-		#region PHASE 3 - RAGE
-		// If tge Boss State is equal to LastStand (PHASE 3)
-		if (bossState == State.rage){
-
-			// If the Player is NOT null -> Move towards the player
-			if (target != null){
-				// Move towards the player at the speed multiplied by Time.deltaTime
-				transform.position = Vector2.MoveTowards (transform.position, target.transform.position, speed * Time.deltaTime);
-			}
-
-			// Shoot towards the player from the Main Head
-			if (Time.time - shootingTimer > timeBetweenShots) {
-				// Instantiate the projectile prefab at 135 on the Z axis
-				GameObject projectileOBJ = Instantiate (projectile, mainHead.transform.position, Quaternion.identity); // The Random Range creates a bullet spread effect
-				Debug.Log ("Shot Right");
-				shootingTimer = Time.time;
-			}
-
-		}
-		#endregion
-
-		#region PHASE 4 - LAST STAND
-		if (bossState == State.lastStand){
-			// Shoot out in all 4 directions?
-			#region INSTANTIATE PROJECTILES
-			// Instantiate UP
-			if (shootStraight){
+				// Shoot towards the player from the Main Head
 				if (Time.time - shootingTimer > timeBetweenShots) {
 					// Instantiate the projectile prefab at 135 on the Z axis
-					GameObject projUP = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f)); // The Random Range creates a bullet spread effect
-					GameObject projDOWN = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 180.0f));
-					GameObject projLEFT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f));
-					GameObject projRIGHT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 270.0f));
+					GameObject projectileOBJ = Instantiate (projectile, mainHead.transform.position, Quaternion.identity); // The Random Range creates a bullet spread effect
+					Debug.Log ("Shot Right");
 					shootingTimer = Time.time;
-					shootDiag = true;
-					shootStraight = false;
 				}
+
 			}
+			#endregion
 
-			if (shootDiag){
-				if (Time.time - shootingTimer > timeBetweenShots && shootDiag) {
-
-					// Instantiate the projectile prefab at 135 on the Z axis
-					GameObject projUPLEFT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 45.0f)); // The Random Range creates a bullet spread effect
-					GameObject projDOWNLEFT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 135.0f));
-					GameObject projUPRIGHT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, -45.0f));
-					GameObject projDOWNRIGHT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, -135.0f));
-					shootingTimer = Time.time;
-					shootStraight = true;
-					shootDiag = false;
+			#region PHASE 4 - LAST STAND
+			if (bossState == State.lastStand){
+				// Shoot out in all 4 directions?
+				#region INSTANTIATE PROJECTILES
+				// Instantiate UP
+				if (shootStraight){
+					if (Time.time - shootingTimer > timeBetweenShots) {
+						// Instantiate the projectile prefab at 135 on the Z axis
+						GameObject projUP = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f)); // The Random Range creates a bullet spread effect
+						GameObject projDOWN = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 180.0f));
+						GameObject projLEFT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 90.0f));
+						GameObject projRIGHT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 270.0f));
+						shootingTimer = Time.time;
+						shootDiag = true;
+						shootStraight = false;
+					}
 				}
-		
+
+				if (shootDiag){
+					if (Time.time - shootingTimer > timeBetweenShots && shootDiag) {
+
+						// Instantiate the projectile prefab at 135 on the Z axis
+						GameObject projUPLEFT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 45.0f)); // The Random Range creates a bullet spread effect
+						GameObject projDOWNLEFT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, 135.0f));
+						GameObject projUPRIGHT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, -45.0f));
+						GameObject projDOWNRIGHT = Instantiate (bulletHellProj, mainHead.transform.position, Quaternion.Euler(0.0f, 0.0f, -135.0f));
+						shootingTimer = Time.time;
+						shootStraight = true;
+						shootDiag = false;
+					}
+
+				}
+				#endregion
 			}
 			#endregion
 		}
-		#endregion
 	}
+
 }
 

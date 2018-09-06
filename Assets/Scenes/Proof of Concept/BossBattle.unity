@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesInRoom: []
-  doorsInRoom: []
+  bossLevel: 
 --- !u!4 &611307997
 Transform:
   m_ObjectHideFlags: 0
@@ -2464,6 +2464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c11733c689b1c42b3ef760ca0a67c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdown: 1.5
   mainHead: {fileID: 0}
   leftHead: {fileID: 0}
   hasLeftHead: 1

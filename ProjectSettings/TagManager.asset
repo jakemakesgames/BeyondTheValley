@@ -18,6 +18,7 @@ TagManager:
   - TrunkBoss
   - MoveSpot
   - BossHB
+  - GameManager
   layers:
   - Default
   - TransparentFX
