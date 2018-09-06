@@ -9,7 +9,7 @@ public class ObjGeneration : MonoBehaviour {
 	[SerializeField] private string sceneToLoad;
 	public GameObject[] objectsToSpawn;
 
-	void Start(){
+	void Awake(){
 		// Call the GenerateObject function
 		GenerateObject ();
 	}

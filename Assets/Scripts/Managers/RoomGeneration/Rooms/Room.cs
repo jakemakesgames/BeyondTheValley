@@ -1,34 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Room : MonoBehaviour {
 
 	public List<GameObject> enemiesInRoom;
-	public List<GameObject> doorsInRoom;
+	public string bossLevel;
 
 	void Start(){
 
 		foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
 			enemiesInRoom.Add (enemy);
 		}
-
-		foreach (GameObject door in GameObject.FindGameObjectsWithTag("Door")) {
-			doorsInRoom.Add (door);
-		}
+			
 	}
 
 	void Update(){
 		if (enemiesInRoom.Count <= 0) {
 			Debug.Log ("All enemies are dead!");
-			OpenDoors ();
+			GoToBossBattle ();
 		}
 	}
 
-	void OpenDoors(){
-		foreach (GameObject door in GameObject.FindGameObjectsWithTag("Door")) {
-			door.SetActive (false);
-		}
+	void GoToBossBattle(){
+		SceneManager.LoadScene (bossLevel);
 	}
 
 
