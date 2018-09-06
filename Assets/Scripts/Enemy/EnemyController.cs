@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class EnemyController : MonoBehaviour {
-
-	#region COMPONENTS AND VARIABLES
+	
+	#region COMPONENTS AND VARIABLE
 	[Header("Base Variables")]
 	[SerializeField]private Transform target;
 	public EnemyScriptable eS;
 
-	public enum type{ ranged, aggressive };
+	public enum type{ ranged, aggressive, slime};
 	public type enemyType;
 
 	public float speed;
@@ -82,6 +83,9 @@ public class EnemyController : MonoBehaviour {
 		} else if (enemyType == type.aggressive) {
 			// Check if the type of this enemy is Aggressive
 			Debug.Log ("I am Aggressive");
+		} else if (enemyType == type.slime){
+			// Check if the type of this enemy is a Slime
+			Debug.Log("I am Slime");
 		}
 
 		#endregion
