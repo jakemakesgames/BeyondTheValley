@@ -144,10 +144,10 @@ TextureImporter:
       name: SlimesPlaceholder_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 227
-        width: 229
-        height: 245
+        x: 72
+        y: 392
+        width: 246
+        height: 266
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,7 +155,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e3293c59b28f9646aa899f9b09f055d
+      spriteID: d3959b0e1deaa874d8ef20f69da3e3eb
       vertices: []
       indices: 
       edges: []
@@ -164,10 +164,10 @@ TextureImporter:
       name: SlimesPlaceholder_1
       rect:
         serializedVersion: 2
-        x: 259
-        y: 31
-        width: 430
-        height: 393
+        x: 396
+        y: 104
+        width: 445
+        height: 420
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,7 +175,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 922db6fd2930d2d49be00a45b31b687d
+      spriteID: d58a46799e3cc6b458665051901ceabe
       vertices: []
       indices: 
       edges: []
@@ -184,10 +184,10 @@ TextureImporter:
       name: SlimesPlaceholder_2
       rect:
         serializedVersion: 2
-        x: 31
-        y: 16
-        width: 169
-        height: 169
+        x: 88
+        y: 100
+        width: 186
+        height: 185
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,7 +195,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1769b66318fb2f14084099689a085741
+      spriteID: 603a2e0b99dbaf045a437dce8a98848d
       vertices: []
       indices: 
       edges: []
@@ -204,9 +204,9 @@ TextureImporter:
       name: SlimesPlaceholder_3
       rect:
         serializedVersion: 2
-        x: 203
-        y: 72
-        width: 5
+        x: 276
+        y: 172
+        width: 4
         height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -215,7 +215,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2850a9e4180f57c4e9cf0cdcaa231840
+      spriteID: 4643a0a5bd559424a90fe177ed7251e5
       vertices: []
       indices: 
       edges: []
@@ -223,7 +223,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f0f972462a207e847b1145aee81e8d13
+    spriteID: c87ba4f943e3f75458ab0ded03478326
     vertices: []
     indices: 
     edges: []
