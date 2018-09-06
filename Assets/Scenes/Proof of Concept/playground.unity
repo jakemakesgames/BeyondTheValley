@@ -817,11 +817,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: bombCountText
-      value: 
-      objectReference: {fileID: 1538658112}
     - target: {fileID: 114358443107429294, guid: b79bdfa7c0de1234db1625366c329956,
         type: 2}
       propertyPath: hearts.Array.data[0]
@@ -879,32 +874,9 @@ Prefab:
       objectReference: {fileID: 576039185}
     - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
         type: 2}
-      propertyPath: movementSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 212284341456932882, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: m_Sprite
+      propertyPath: bombCountText
       value: 
-      objectReference: {fileID: 21300000, guid: 30780c0a9d4036b4385efa805b082276,
-        type: 3}
-    - target: {fileID: 114358443107429294, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: fullHeart
-      value: 
-      objectReference: {fileID: 21300004, guid: f13455da062b08947bc1844849a9159b,
-        type: 3}
-    - target: {fileID: 114358443107429294, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: emptyHeart
-      value: 
-      objectReference: {fileID: 21300006, guid: f13455da062b08947bc1844849a9159b,
-        type: 3}
-    - target: {fileID: 114358443107429294, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: health
-      value: 4
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1538658112}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b79bdfa7c0de1234db1625366c329956, type: 2}
   m_IsPrefabParent: 0

@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2D: {fileID: 0}
   controller: 1
-  movementSpeed: 60
+  movementSpeed: 40
   maxSpeed: 10
   usingGamepad: 0
   projectileOBJ: {fileID: 1273396681887052, guid: e3de8ab2232ad4a419760c425ac017a5,
@@ -166,8 +166,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  fullHeart: {fileID: 21300000, guid: d3d91b76a5ab0184cb3c1fa5bf22b68d, type: 3}
-  emptyHeart: {fileID: 21300000, guid: 1d51f5a9d16dace4daf0f6c48a2a5b5d, type: 3}
+  fullHeart: {fileID: 21300004, guid: f13455da062b08947bc1844849a9159b, type: 3}
+  emptyHeart: {fileID: 21300006, guid: f13455da062b08947bc1844849a9159b, type: 3}
   gameOverUI: {fileID: 0}
   blinkingTimer: 0
   blinkingMinDuration: 0.1
@@ -209,7 +209,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 995
-  m_Sprite: {fileID: 21300000, guid: 10a095e3cbaa90f44bad3ad515e08e2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30780c0a9d4036b4385efa805b082276, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

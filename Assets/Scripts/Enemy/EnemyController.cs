@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+using Sirenix.OdinInspector;
+
 public class EnemyController : MonoBehaviour {
 	
 	#region COMPONENTS AND VARIABLE
@@ -15,22 +17,23 @@ public class EnemyController : MonoBehaviour {
 
 	public float speed;
 
-	[Header ("Ranged AI Variables")]
-	public float stoppingDistance;
-	public float retreatDistance;
+	[FoldoutGroup("Ranged AI")]
+	[Header ("Variables")]
+	[FoldoutGroup("Ranged AI")] public float stoppingDistance;
+	[FoldoutGroup("Ranged AI")] public float retreatDistance;
+	[FoldoutGroup("Ranged AI")] private float timeBetweenShots;
+	[FoldoutGroup("Ranged AI")] public float startTimeBetweenShots;
+	[FoldoutGroup("Ranged AI")] public GameObject projectile;
+	[FoldoutGroup("Ranged AI")] bool canShoot = true;
 
-	private float timeBetweenShots;
-	public float startTimeBetweenShots;
-	public GameObject projectile;
-	bool canShoot = true;
-
-	[Header("Boss Entity Variables")]
+	//[Header("Boss Entity Variables")]
+	[ToggleGroup("isBossEntity", order:2, groupTitle: "Boss Entity")]
+	//public bool BossToggle;
 	public bool isBossEntity;
-	public List<GameObject> moveSpot;
-	public int randSpot;
-
-	private float waitTime;
-	public float startWaitTime;
+	[ToggleGroup("isBossEntity")] public List<GameObject> moveSpot;
+	[ToggleGroup("isBossEntity")] public int randSpot;
+	[ToggleGroup("isBossEntity")] private float waitTime;
+	[ToggleGroup("isBossEntity")] public float startWaitTime;
 
 	#endregion
 
