@@ -26,6 +26,11 @@ public class EnemyController : MonoBehaviour {
 	[FoldoutGroup("Ranged AI")] public GameObject projectile;
 	[FoldoutGroup("Ranged AI")] bool canShoot = true;
 
+	[FoldoutGroup("Slime AI")]
+	[Header("Variables")]
+	[FoldoutGroup("Slime AI")] public bool isSlime;
+	[FoldoutGroup("Slime AI")] public GameObject smallSlime;
+
 	//[Header("Boss Entity Variables")]
 	[ToggleGroup("isBossEntity", order:2, groupTitle: "Boss Entity")]
 	//public bool BossToggle;
@@ -118,6 +123,7 @@ public class EnemyController : MonoBehaviour {
 
 		}
 
+		#region IF THIS ENEMY IS A BOSS ENTITY
 		// Add this into an enemy type later on, call type checks etc.
 		if (isBossEntity) {
 			// If the player is still alive
@@ -155,6 +161,7 @@ public class EnemyController : MonoBehaviour {
 				#endregion
 			}
 		}
+		#endregion
 	}
 
 	void AggressiveBehaviour(){
@@ -204,6 +211,11 @@ public class EnemyController : MonoBehaviour {
 		}
 
 		#endregion
+	}
+
+	public void SlimeSplit(){
+		GameObject smallSlimeOBJ = Instantiate (smallSlime, transform.position, Quaternion.identity) as GameObject;
+		GameObject smallSlimeOBJ2 = Instantiate (smallSlime, transform.position, Quaternion.identity) as GameObject;
 	}
 
 	void HardDestroy(){

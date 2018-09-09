@@ -30,13 +30,14 @@ public class EnemyHealthManager : MonoBehaviour {
 
 	private void Update()
 	{
+		Debug.Log ("IS THIS ENEMY A SLIME?" + enemyController.isSlime);
+
 		// If the enemy's health is less than or equal to 0 -> cap the health at 0.
-		if (health <= 0){
+		if (health <= 0) {
 			health = 0;
-			// Call the EnemyDie function
-			EnemyDie();
+			EnemyDie ();
 		}
-	}
+	} 
 
 	public void TakeDamage (int damageToDeal){
 		health -= damageToDeal;
@@ -55,6 +56,11 @@ public class EnemyHealthManager : MonoBehaviour {
 		gm.GetComponent<GameManager>().ItemDrop(enemyDeathSpot);
 		// Add score
 		gm.AddScore(scoreValue);
+
+		if (enemyController.isSlime) {
+			enemyController.SlimeSplit ();
+		}
+			
 		room.enemiesInRoom.Remove (this.gameObject);
 		// Destroy this enemy
 		Destroy(this.gameObject);
