@@ -10,7 +10,48 @@ public class SlimeBossController : MonoBehaviour {
 	[Header("Encounter Countdown Timer")]
 	public float countdown;
 
+	[Header("Projectiles")]
+	public GameObject slimeEnemy;
+	//public GameObject slimeBall;
+
+	[Header("Shooting Timer")]
+	private float shootingTimer;
+	public float timeBetweenShots;
 	#endregion
+
+	#region STATES
+	public enum State {idle, irritated, angry, rage, lastStand};
+	public State bossState;
+	#endregion
+
+	public void Update(){
+
+		countdown -= Time.deltaTime;
+
+		if (countdown <= 0) {
+
+			#region PHASE 1 - THE IDLE STATE
+			// If the BossState is equal to State.idle
+			if (bossState == State.idle){
+				Debug.Log("Current State: " + bossState);
+				// If Time.time - shooting timer is less than the Time Between Shots value
+				if (Time.time - shootingTimer > timeBetweenShots){
+					// Shoot a slime enemy projectile
+					GameObject slimeEnemProj = Instantiate(slimeEnemy, transform.position, Quaternion.identity) as GameObject;
+					Debug.Log("Slime Enemy Shot");
+					// Reset the timer
+					shootingTimer = Time.time;
+				}
+			}
+
+			if (bossState == State.irritated){
+				Debug.Log("Current State: " + bossState);
+			}
+
+
+			#endregion
+		}
+	}
 
 	/*
 	PHASES
