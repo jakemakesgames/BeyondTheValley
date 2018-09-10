@@ -413,6 +413,7 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
 --- !u!114 &114049728968393056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,6 +428,7 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
 --- !u!114 &114093717053032756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -441,6 +443,7 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
 --- !u!114 &114109956207297504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -455,6 +458,7 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
 --- !u!114 &114115878954293482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -469,6 +473,7 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
 --- !u!114 &114167966536940036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -483,6 +488,7 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
 --- !u!114 &114185025094208680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -497,6 +503,7 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
 --- !u!114 &114430484905471174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -511,6 +518,7 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
 --- !u!114 &114467695592033644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -525,6 +533,7 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
 --- !u!114 &114888439959778192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -539,6 +548,7 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
 --- !u!114 &114904219358743906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -553,6 +563,7 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
 --- !u!114 &114959868612903022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -567,3 +578,4 @@ MonoBehaviour:
   sceneToLoad: playground
   objectsToSpawn:
   - {fileID: 1385655342414636, guid: b1f57720b6079f14aa2e165e03603634, type: 2}
+  - {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}

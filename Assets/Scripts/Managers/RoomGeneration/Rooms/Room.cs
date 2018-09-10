@@ -10,10 +10,11 @@ public class Room : MonoBehaviour {
 
 	void Start(){
 
+		/*
 		foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
 			enemiesInRoom.Add (enemy);
 		}
-			
+		*/	
 	}
 
 	void Update(){

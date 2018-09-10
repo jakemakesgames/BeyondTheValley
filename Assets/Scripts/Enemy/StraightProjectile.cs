@@ -18,7 +18,6 @@ public class StraightProjectile : MonoBehaviour {
 	void Awake(){
 		
 		player = FindObjectOfType<PlayerController> ().transform;
-
 	}
 
 	// Use this for initialization

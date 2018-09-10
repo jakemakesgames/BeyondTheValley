@@ -1099,6 +1099,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
+        type: 2}
+      propertyPath: bombCountText
+      value: 
+      objectReference: {fileID: 1538658112}
     - target: {fileID: 114358443107429294, guid: b79bdfa7c0de1234db1625366c329956,
         type: 2}
       propertyPath: hearts.Array.data[0]
@@ -1154,26 +1159,6 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 576039185}
-    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: bombCountText
-      value: 
-      objectReference: {fileID: 1538658112}
-    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: timeBetweenShots
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: movementSpeed
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
-        type: 2}
-      propertyPath: maxSpeed
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b79bdfa7c0de1234db1625366c329956, type: 2}
   m_IsPrefabParent: 0

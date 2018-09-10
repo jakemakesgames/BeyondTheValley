@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour {
 	
 	#region COMPONENTS AND VARIABLE
 	[Header("Base Variables")]
+
+	private Room room;
+
 	[SerializeField]private Transform target;
 	public EnemyScriptable eS;
 
@@ -41,6 +44,12 @@ public class EnemyController : MonoBehaviour {
 	[ToggleGroup("isBossEntity")] public float startWaitTime;
 
 	#endregion
+
+	void Awake(){
+		room = FindObjectOfType<Room> ();
+
+		room.enemiesInRoom.Add (gameObject);
+	}
 
 	void Start(){
 
