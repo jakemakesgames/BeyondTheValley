@@ -2449,6 +2449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c11733c689b1c42b3ef760ca0a67c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   countdown: 1.5
   mainHead: {fileID: 0}
   leftHead: {fileID: 0}
@@ -2469,7 +2470,7 @@ MonoBehaviour:
   angryMoveSpeed: 20
   lastStandSpeed: 40
   timeBetweenShots: 0.75
-  bossState: 0
+  bossState: 3
   curState: 0
 --- !u!4 &994493529
 Transform:

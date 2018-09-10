@@ -6,6 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class TrunkBossController : MonoBehaviour {
 
+	// Reference to the player game object -> used for a null check later on
+	[SerializeField] private GameObject player;
+
 	#region COMPONENTS AND VARIABLES
 	[Header("Encounter Countdown Timer")]
 	public float countdown;
@@ -63,6 +66,7 @@ public class TrunkBossController : MonoBehaviour {
 		rightHead = GameObject.FindGameObjectWithTag ("RHead");
 
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
+		player = GameObject.FindGameObjectWithTag ("Player"); // Dont double up later on: FIX 
 
 		curState = bossState;
 		Debug.Log (curState);
@@ -199,6 +203,17 @@ public class TrunkBossController : MonoBehaviour {
 			}
 			#endregion
 		}
+
+		// If the player is dead -> Destroy the BOSS
+		if (player == null){
+			// Call the HardDestroy function 
+			HardDestroy ();
+		}
+	}
+
+	void HardDestroy(){
+		// Destroy the Boss GameObject
+		Destroy (this.gameObject);
 	}
 
 }

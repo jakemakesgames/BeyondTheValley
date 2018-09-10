@@ -5,7 +5,7 @@ using UnityEngine;
 public class StraightProjectile : MonoBehaviour {
 
 	#region COMPONENTS AND VARIABLES
-	[SerializeField] private Transform player;
+	[SerializeField] private GameObject player;
 
 	public float moveSpeed;
 	public int damageAmount;
@@ -16,8 +16,12 @@ public class StraightProjectile : MonoBehaviour {
 	#endregion
 
 	void Awake(){
-		
-		player = FindObjectOfType<PlayerController> ().transform;
+
+		// Find refernce to the player
+
+
+
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	// Use this for initialization
