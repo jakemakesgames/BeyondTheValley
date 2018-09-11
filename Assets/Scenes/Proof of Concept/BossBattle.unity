@@ -2489,7 +2489,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &994493525
 Rigidbody2D:
   serializedVersion: 4
@@ -2991,7 +2991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1207756604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3004,9 +3004,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdown: 1.5
+  speed: 0
+  player: {fileID: 0}
   slimeEnemy: {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
+  slimeBall: {fileID: 1362437828357858, guid: 6b53e6e3e747dc44a8536610cd54b17b, type: 2}
   timeBetweenShots: 2
-  bossState: 0
+  bossState: 2
 --- !u!50 &1207756605
 Rigidbody2D:
   serializedVersion: 4
