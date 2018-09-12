@@ -64,6 +64,7 @@ public class SlimeBossController : MonoBehaviour {
 			}
 			#endregion
 
+			#region PHASE 3 - THE RAGE PHASE
 			if (bossState == State.rage) {
 				Debug.Log ("Current State: " + bossState);
 				// NOTE: WHEN THESE BULLETS DESTROY IN THIS STATE, INSTANTIATE A SLIMEY BOI IN THEIR PLACE
@@ -76,6 +77,14 @@ public class SlimeBossController : MonoBehaviour {
 					shootingTimer = Time.time;
 				} 
 			}
+			#endregion
+
+			#region PHASE 4 - THE LAST STAND
+			if (bossState == State.lastStand){
+				Debug.Log ("Current State: " + bossState);
+
+			}
+			#endregion
 	}
 
 	/*

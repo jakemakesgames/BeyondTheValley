@@ -58,7 +58,7 @@ public class EnemyController : MonoBehaviour {
 		target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();;
 
 		// Call the EnemyTypeCheck function
-		EnemyTypeCheck ();
+		//EnemyTypeCheck ();
 		if(!isBossEntity){
 			speed = eS.enemyMovementSpeed;
 		}
@@ -86,6 +86,7 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	// This Function serves the purpose of checking which type this enemy is - this will set the variable values and type specific parameters
+	/*
 	void EnemyTypeCheck(){
 
 		#region DEBUGGING CHECKS -> DELETE LATER
@@ -107,6 +108,7 @@ public class EnemyController : MonoBehaviour {
 
 		#endregion
 	}
+	*/
 
 	void Update(){
 
