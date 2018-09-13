@@ -23,11 +23,16 @@ public class GameManager : MonoBehaviour {
 	public GameObject rapidFirePickup;
 	public GameObject bombPickup;
 
+	[SerializeField] private bool pickups;
+
+	[SerializeField] private int itemDropAmt;
+	[SerializeField] private int itemDropMax;
+
 	#endregion
 
-
-
 	void Start(){
+		pickups = true;
+
 		// Find a reference to the PlayerController
 		playerController = FindObjectOfType<PlayerController> ();
 	}
@@ -50,45 +55,62 @@ public class GameManager : MonoBehaviour {
 
 		// The random number equals a number between 1 & 5
 		randomNum = Random.Range(1, 6);
+		if (pickups){
+			// If the randNum variable is equal to 1 -> a health pickup has been dropped
+			if (randomNum == 1){
+				// Instantiate the healthPickup GameObject at the enemy's death spot.
+				HP = Instantiate(healthPickup, enemyDeathSpot, Quaternion.identity);
+				Debug.Log("Health Pickup dropped");
 
-		// If the randNum variable is equal to 1 -> a health pickup has been dropped
-		if (randomNum == 1){
-			// Instantiate the healthPickup GameObject at the enemy's death spot.
-			HP = Instantiate(healthPickup, enemyDeathSpot, Quaternion.identity);
-			Debug.Log("Health Pickup dropped");
+				ItemDropCounter();
+			}
+
+			// If the randNum variable is equal to 2 -> a gem has been dropped
+			if (randomNum == 2){
+				// Instantiate the gemPickup GameObject at the enemy's death spot.
+				gem = Instantiate(gemPickup, enemyDeathSpot, Quaternion.identity);
+				Debug.Log("Gem dropped");
+
+				ItemDropCounter();
+			}
+
+			// If the randNum is equal is 3 -> a rapid fire pickup has been dropped
+			if (randomNum == 3){
+				// Instantiate the rapidFirePickup GameObject at the enemy's death spot.
+				rapidFire = Instantiate(rapidFirePickup, enemyDeathSpot, Quaternion.identity);
+				Debug.Log("Rapid Fire dropped");
+
+				ItemDropCounter();
+			}
+
+			// If the randNum is equal is 5 -> a bomb pickup is dropped
+			if (randomNum == 4){
+				// Instantiate the bombPickup GameObject at the enemy's death spot.
+				bomb = Instantiate(bombPickup, enemyDeathSpot, Quaternion.identity);
+				Debug.Log("Bomb dropped");
+			}
+
+			// If the randNum is equal is 5 -> nothing is dropped
+			if (randomNum == 5) {
+				Debug.Log ("Nothing dropped");
+			}
+
+			// If the randNum is equal is 6 -> nothing is dropped
+			if (randomNum == 6){
+				Debug.Log("Nothing dropped");
+			}
 		}
 
-		// If the randNum variable is equal to 2 -> a gem has been dropped
-		if (randomNum == 2){
-			// Instantiate the gemPickup GameObject at the enemy's death spot.
-			gem = Instantiate(gemPickup, enemyDeathSpot, Quaternion.identity);
-			Debug.Log("Gem dropped");
-		}
-
-		// If the randNum is equal is 3 -> a rapid fire pickup has been dropped
-		if (randomNum == 3){
-			// Instantiate the rapidFirePickup GameObject at the enemy's death spot.
-			rapidFire = Instantiate(rapidFirePickup, enemyDeathSpot, Quaternion.identity);
-			Debug.Log("Rapid Fire dropped");
-		}
-
-		// If the randNum is equal is 5 -> a bomb pickup is dropped
-		if (randomNum == 4){
-			// Instantiate the bombPickup GameObject at the enemy's death spot.
-			bomb = Instantiate(bombPickup, enemyDeathSpot, Quaternion.identity);
-			Debug.Log("Bomb dropped");
-		}
-
-		// If the randNum is equal is 5 -> nothing is dropped
-		if (randomNum == 5) {
-			Debug.Log ("Nothing dropped");
-		}
-
-		// If the randNum is equal is 6 -> nothing is dropped
-		if (randomNum == 6){
-			Debug.Log("Nothing dropped");
-		}
 		#endregion
+	}
+
+	public void ItemDropCounter(){
+		// Increase the amount of items dropped
+		itemDropAmt++;
+
+		if (itemDropAmt >= itemDropMax) {
+			pickups = false;
+		}
 	}
 
 	public void AddScore(int scoreAmount){

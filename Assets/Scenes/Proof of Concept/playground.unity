@@ -905,6 +905,11 @@ Prefab:
       propertyPath: bombCountText
       value: 
       objectReference: {fileID: 1538658112}
+    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
+        type: 2}
+      propertyPath: usingGamepad
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b79bdfa7c0de1234db1625366c329956, type: 2}
   m_IsPrefabParent: 0
@@ -1294,6 +1299,9 @@ MonoBehaviour:
   rapidFirePickup: {fileID: 1631113195227592, guid: 3fd7b5643746a44449ba3bfd8fb60aee,
     type: 2}
   bombPickup: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
+  pickups: 0
+  itemDropAmt: 0
+  itemDropMax: 10
 --- !u!4 &678095054
 Transform:
   m_ObjectHideFlags: 0

@@ -60,49 +60,11 @@ public class PlayerController : MonoBehaviour {
 
 		#region MOVEMENT
 
-		/* -----> THINK ABOUT PUTTING THIS ON THE GAME MANAGER (WHICH WILL BE "DONT DESTROY ON LOAD"), THIS WILL CLEAN UP THIS SCRIPT A LITTLE MORE
-		#region Gamepad Detection
-		string[] names = Input.GetJoystickNames();
-		for (int i = 0; i < names.Length; i++) {
-			// A Gamepad has been connected
-			if (names[i].Length == 33){
-				Debug.Log("XBOX 360 CONTROLLER DETECTED");
-				gamepad = 1;
-				usingGamepad = true;
-			}
-
-			// A Gamepad has been disconnected
-			if (names[i].Length != 33){
-				Debug.Log("XBOX 360 CONTROLLER DISCONNECTED");
-				gamepad = 0;
-				usingGamepad = false;
-			}
-		}
-
-		#endregion
-		*/
-
 		if (usingGamepad) {
 			#region Gamepad Input
 			Vector2 moveInputAlt = new Vector2 (XCI.GetAxis (XboxAxis.LeftStickX), XCI.GetAxis (XboxAxis.LeftStickY));
 			moveVelocityAlt = moveInputAlt.normalized * movementSpeed;
 			#endregion
-
-			/*
-			#region Gamepad Ranged Attack
-			// If the Right Trigger is being held down (Do the thing)
-			if (XCI.GetAxis(XboxAxis.RightTrigger) > 0.1f){
-				// If Time.time minus the shootingTimer variable is GREATER THAN the timeBetweenShots varibale
-				if (Time.time - shootingTimer > timeBetweenShots) {
-					// Call the Shoot function
-					//Shoot();
-					// Reset the shooting timer
-					shootingTimer = Time.time;
-				}
-			}
-
-			#endregion
-			*/
 
 		} else {
 			#region Keyboard Input
@@ -116,6 +78,7 @@ public class PlayerController : MonoBehaviour {
 			#endregion
 
 			#region DIAGONAL SHOOTING
+
 			// If the Up Arrow AND the Right Arrow are being held at the same time
 			if (Input.GetKey(KeyCode.UpArrow) && (Input.GetKey(KeyCode.RightArrow)))
 			{
