@@ -1646,6 +1646,9 @@ MonoBehaviour:
   rapidFirePickup: {fileID: 1631113195227592, guid: 3fd7b5643746a44449ba3bfd8fb60aee,
     type: 2}
   bombPickup: {fileID: 1903801605809718, guid: e432ee4e07cdd6c4ebec1813b4109e7a, type: 2}
+  pickups: 0
+  itemDropAmt: 0
+  itemDropMax: 0
 --- !u!4 &678095054
 Transform:
   m_ObjectHideFlags: 0
