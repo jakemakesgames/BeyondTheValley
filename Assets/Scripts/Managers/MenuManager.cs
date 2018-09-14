@@ -6,13 +6,13 @@ using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour {
 
-	/*
+
 	[Header("Temp Intro")]
 	// Temp story panel
 	public GameObject introCanvas;
 	public GameObject titleScreenCanvas;
 	[SerializeField] private bool pressedSpacebar;
-	*/
+
 
 	[Header("Main Menu Variables")]
 	// Canvas Variables
@@ -23,10 +23,10 @@ public class MenuManager : MonoBehaviour {
 
 	void Start(){
 		// Setting the correct Canvases to Active or Not
-		/*
+
 		introCanvas.SetActive(true);
 		titleScreenCanvas.SetActive (false);
-		*/
+
 
 		menuCanvas.SetActive (true);
 		controlsCanvas.SetActive (false);
@@ -34,7 +34,7 @@ public class MenuManager : MonoBehaviour {
 		quitCanvas.SetActive (false);
 	}
 
-	/*
+
 	void Update(){
 		if (Input.GetKeyDown (KeyCode.Space) && !pressedSpacebar) {
 			titleScreenCanvas.SetActive (false);
@@ -42,7 +42,7 @@ public class MenuManager : MonoBehaviour {
 
 		}
 	}
-	*/
+
 
 	public void PlayGame(){
 		// Change to Game Scene
@@ -90,14 +90,14 @@ public class MenuManager : MonoBehaviour {
 		Application.Quit ();
 	}
 
-	/*
+
 	public void SkipIntro(){
 		// Set the intro canvas to false (hiding it from view).
 		introCanvas.SetActive(false);
 		pressedSpacebar = false;
 		titleScreenCanvas.SetActive (true);
 	}
-	*/
+
 
 
 }
