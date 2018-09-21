@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
 
@@ -12,6 +13,11 @@ public class MenuManager : MonoBehaviour {
 	public GameObject introCanvas;
 	public GameObject titleScreenCanvas;
 	[SerializeField] private bool pressedSpacebar;
+
+	public Text introText;
+	public string[] sentences;
+	private int index;
+	public float typingSpeed;
 
 
 	[Header("Main Menu Variables")]
@@ -42,7 +48,6 @@ public class MenuManager : MonoBehaviour {
 
 		}
 	}
-
 
 	public void PlayGame(){
 		// Change to Game Scene
