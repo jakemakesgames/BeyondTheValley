@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Scenes/Proof of Concept/mainMenu.unity
+    guid: 089df6b4a7abb144ebb2fdc8eac221bc
+  - enabled: 1
     path: Assets/Scenes/Proof of Concept/playground.unity
     guid: 5e9f4a46a41a6764f8e9cc07b15e2399
   - enabled: 1
