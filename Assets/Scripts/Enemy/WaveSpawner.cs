@@ -25,9 +25,13 @@ public class WaveSpawner : MonoBehaviour {
 	public float timeBetweenWaves; // The time that passes between waves
 	public float waveCountdown; // A countdown timer til the next wave
 
+	public bool wavesActive;
+
 	void Start(){
 		// Set the waveCountdown value equal to the timeBetweenWaves value
 		waveCountdown = timeBetweenWaves;
+		// Set the wavesActive to true
+		wavesActive = true;
 	}
 
 	void Update(){
