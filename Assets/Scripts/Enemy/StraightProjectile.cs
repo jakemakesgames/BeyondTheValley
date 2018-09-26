@@ -11,6 +11,7 @@ public class StraightProjectile : MonoBehaviour {
 	public float moveSpeed;
 	public int damageAmount;
 	public GameObject projectileEffect;	// Particle effect that is Instantiated when the projectile is fired
+	public float lifeTime;
 
 	[ToggleGroup("isSlimeBall", order:2, groupTitle: "Slime Ball")]
 	[SerializeField] private bool isSlimeBall;
@@ -36,12 +37,18 @@ public class StraightProjectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		lifeTime -= Time.deltaTime;
+
 		// If the player IS alive, do the thing
 		if (player != null) {
 			// Move the projectile straight up
 			transform.position += transform.up * moveSpeed * Time.deltaTime;
 		}
 		if (player == null) {
+			Destroy (gameObject);
+		}
+
+		if (lifeTime <= 0) {
 			Destroy (gameObject);
 		}
 
