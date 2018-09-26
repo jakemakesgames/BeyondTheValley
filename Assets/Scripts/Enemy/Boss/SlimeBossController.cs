@@ -17,6 +17,7 @@ public class SlimeBossController : MonoBehaviour {
 	[Header("Projectiles")]
 	public GameObject slimeEnemy;
 	public GameObject slimeBall;
+	public GameObject slimeStraight;
 
 	[Header("Shooting Timer")]
 	private float shootingTimer;
@@ -70,10 +71,10 @@ public class SlimeBossController : MonoBehaviour {
 				// NOTE: WHEN THESE BULLETS DESTROY IN THIS STATE, INSTANTIATE A SLIMEY BOI IN THEIR PLACE
 				if (Time.time - shootingTimer > timeBetweenShots) {
 					// Instantiate the projectile prefab at 135 on the Z axis
-					GameObject projUP = Instantiate (slimeBall, transform.position, Quaternion.Euler (0.0f, 0.0f, 0.0f)); // The Random Range creates a bullet spread effect
-					GameObject projDOWN = Instantiate (slimeBall, transform.position, Quaternion.Euler (0.0f, 0.0f, 180.0f));
-					GameObject projLEFT = Instantiate (slimeBall, transform.position, Quaternion.Euler (0.0f, 0.0f, 90.0f));
-					GameObject projRIGHT = Instantiate (slimeBall, transform.position, Quaternion.Euler (0.0f, 0.0f, 270.0f));
+					GameObject projUP = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, 0.0f)); // The Random Range creates a bullet spread effect
+					GameObject projDOWN = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, 180.0f));
+					GameObject projLEFT = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, 90.0f));
+					GameObject projRIGHT = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, 270.0f));
 					shootingTimer = Time.time;
 				} 
 			}
