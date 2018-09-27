@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class Room : MonoBehaviour {
 
 	public List<GameObject> enemiesInRoom;
-	public string bossLevel;
+	public GameObject portal;
+	//public string bossLevel;
 
 	void Start(){
 
@@ -20,13 +21,14 @@ public class Room : MonoBehaviour {
 	void Update(){
 		if (enemiesInRoom.Count <= 0) {
 			Debug.Log ("All enemies are dead!");
-			GoToBossBattle ();
+			Instantiate (portal, transform.position, Quaternion.identity);
+			//GoToBossBattle ();
 		}
 	}
 
-	void GoToBossBattle(){
-		SceneManager.LoadScene (bossLevel);
-	}
+	//void GoToBossBattle(){
+		//SceneManager.LoadScene (bossLevel);
+	//}
 
 
 }

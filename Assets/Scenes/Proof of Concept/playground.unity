@@ -528,7 +528,7 @@ GameObject:
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesInRoom: []
-  bossLevel: BossBattle
+  portal: {fileID: 0}
 --- !u!114 &698549293 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114801144211832244, guid: fc0b5ec25d9d42b469eb6c7580216daa,

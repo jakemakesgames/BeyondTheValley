@@ -25,6 +25,8 @@ public class WaveSpawner : MonoBehaviour {
 	public float timeBetweenWaves; // The time that passes between waves
 	public float waveCountdown; // A countdown timer til the next wave
 
+	private float searchCountdown = 1f;	// Search through the scene to find all of the gameObjects which are tagged "Enemy", used in the EnemyIsAlive bool
+
 	public bool wavesActive;
 
 	void Start(){
@@ -35,6 +37,19 @@ public class WaveSpawner : MonoBehaviour {
 	}
 
 	void Update(){
+
+		// If the spawn state is equal to Waiting
+		if (state == SpawnState.Waiting){
+			// Check if enemies are still alive
+			// If there are no enemies alive
+			if (!EnemyIsAlive()){
+				// Begin new wave
+				Debug.Log ("Wave Completed");
+			} else {
+				return;
+			}
+		}
+
 		// If waveCountdown is less than or equal to zero -> Do the thing
 		if (waveCountdown <= 0) {
 			// If the current SpawnState does NOT equal spawning
@@ -48,8 +63,23 @@ public class WaveSpawner : MonoBehaviour {
 		}
 	}
 
+	bool EnemyIsAlive(){
+
+		searchCountdown -= Time.deltaTime;
+		// If the searchCountdown value is LESS THAN OR EQUAL to 0, do the search
+		if (searchCountdown <= 0) {
+			// Reset the searchCountdown value
+			searchCountdown = 1f;
+			if (GameObject.FindGameObjectWithTag ("Enemy") == null) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	// Coroutine handling the Wave Spawning
 	IEnumerator SpawnWave (Wave _wave){
+		Debug.Log ("Spawning Wave " + _wave.name);
 		// The SpawnState is "Spawning"
 		state = SpawnState.Spawning;
 
@@ -66,7 +96,9 @@ public class WaveSpawner : MonoBehaviour {
 
 	// A function to handle the Enemy Spawning
 	void SpawnEnemy(Transform _enemy){
+		
 		Debug.Log ("Spawning Enemy");
+
 	}
 
 }
