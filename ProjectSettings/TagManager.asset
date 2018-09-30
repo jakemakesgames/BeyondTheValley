@@ -19,6 +19,8 @@ TagManager:
   - MoveSpot
   - BossHB
   - GameManager
+  - Portal
+  - PromptText
   layers:
   - Default
   - TransparentFX

@@ -7,10 +7,11 @@ public class Room : MonoBehaviour {
 
 	public List<GameObject> enemiesInRoom;
 	public GameObject portal;
+	bool portalOpened;
 	//public string bossLevel;
 
 	void Start(){
-
+		portalOpened = false;
 		/*
 		foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
 			enemiesInRoom.Add (enemy);
@@ -21,7 +22,11 @@ public class Room : MonoBehaviour {
 	void Update(){
 		if (enemiesInRoom.Count <= 0) {
 			Debug.Log ("All enemies are dead!");
-			Instantiate (portal, transform.position, Quaternion.identity);
+			if (!portalOpened) {
+				Instantiate (portal, transform.position, Quaternion.identity);
+				portalOpened = true;
+			}
+
 			//GoToBossBattle ();
 		}
 	}
