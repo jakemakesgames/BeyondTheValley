@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TrunkBossHealthController : MonoBehaviour {
 
-	[SerializeField] private TrunkBossController tbc;
+public class SlimeBossHealthController : MonoBehaviour {
+
+	[SerializeField] private SlimeBossController sbc;
 	[SerializeField] private GameManager gm;
 	public int scoreValue;
 	[HideInInspector] public bool isDead = false;
@@ -20,12 +21,12 @@ public class TrunkBossHealthController : MonoBehaviour {
 	public GameObject deathParticleEffect;
 
 	void Start(){
-		// Get reference to the TrunkBossController
-		tbc = FindObjectOfType<TrunkBossController> ();
-		// Set the health to the starting health
+		// Get the reference to the SlimeBossController
+		sbc = FindObjectOfType<SlimeBossController>();
+		// Set the heal to the starting health
 		health = startHealth;
 
-		// Get referencce to the HealthBar GameObject
+		// Get a reference to the HealthBar gameObject
 		healthBar = GameObject.FindGameObjectWithTag("BossHB");
 		healthText.text = health.ToString ();
 	}
@@ -35,27 +36,26 @@ public class TrunkBossHealthController : MonoBehaviour {
 		healthText.text = health.ToString ();
 
 		// ANGRY
-		if (health <= 75f) {
-			// Set the Boss State equal to State.Angry (This will activate PHASE 2)
-			tbc.bossState = TrunkBossController.State.angry;
+		if (health <= 75f){
+			// Set the Boss State equal to State.Angry
+			sbc.bossState = SlimeBossController.State.angry;
 		}
-		// If the Boss' health is less than OR equal to 50, their state is
+
 		// RAGE
 		if (health <= 50f) {
 			// Set the Boss State equal to State.Rage
-			tbc.bossState = TrunkBossController.State.rage;
+			sbc.bossState = SlimeBossController.State.rage;
 		}
 
 		// LAST STAND
 		if (health <= 25f) {
-			// Set the Boss State equal to State.LastStand (This will activate their FINAL PHASE);
-			tbc.bossState = TrunkBossController.State.lastStand;
+			// Set the Boss state equal to State.LastStand (This will activate their FINAL PHASE)
+			sbc.bossState = SlimeBossController.State.lastStand;
 		}
 
-		// If the Boss' health is less than OR equal to 0 -> Call the Die function
 		if (health <= 0) {
-			// The Boss is DEAD
-			Debug.Log("Trunk Boss is Dead");
+			// The boss is DEAD
+			Debug.Log("Slime Boss is Dead");
 		}
 	}
 
@@ -68,19 +68,18 @@ public class TrunkBossHealthController : MonoBehaviour {
 			// Call the Die function
 			Die();
 		}
-	} 
+	}
 
 	void Die(){
-		// Disable the TrunkBossController so the boss can no longer shoot
-		tbc.enabled = false;
-		// Destroy the HealthBar
+		// Disable the Slime Boss Controller
+		sbc.enabled = false;
+		// DEstroy the Healthbar
 		Destroy(healthBar);
 		// Instantiate the death particle effect
 		GameObject deathFX = Instantiate(deathParticleEffect, transform.position, Quaternion.identity) as GameObject;
-		// Destroy the Game Object
+		// Destroy the Boss Game Object
 		Destroy(this.gameObject);
 		// Destroy the particle effect
 		Destroy(deathFX, 1f);
-
 	}
 }
