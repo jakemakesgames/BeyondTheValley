@@ -95,6 +95,7 @@ MonoBehaviour:
   damageAmount: 1
   projectileEffect: {fileID: 1513945007070804, guid: 4fb247b6e81785943be357834aaf30f1,
     type: 2}
+  lifeTime: 2
   isSlimeBall: 1
   slimeEnemy: {fileID: 1617454435181962, guid: 2ba9faafef9edd34b9a237b2f3a9e25f, type: 2}
   shake: {fileID: 0}

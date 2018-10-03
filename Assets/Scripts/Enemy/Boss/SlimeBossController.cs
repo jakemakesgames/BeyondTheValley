@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(BoxCollider2D))]
 public class SlimeBossController : MonoBehaviour {
 
 	#region COMPONENTS AND VARIABLES
@@ -22,6 +21,7 @@ public class SlimeBossController : MonoBehaviour {
 	[Header("Shooting Timer")]
 	private float shootingTimer;
 	public float timeBetweenShots;
+	public float newTimeBetweenShots;
 	#endregion
 
 	#region STATES
@@ -55,6 +55,7 @@ public class SlimeBossController : MonoBehaviour {
 			#region PHASE 2 - THE ANGRY STATE
 			if (bossState == State.angry){
 				Debug.Log("Current State: " + bossState);
+				timeBetweenShots = newTimeBetweenShots;
 				// if the shooting timer is less than the timeBetweenShots value
 				if (Time.time - shootingTimer > timeBetweenShots) {
 					// Instantiate the slimeball prefab

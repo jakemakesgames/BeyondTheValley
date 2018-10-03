@@ -87,7 +87,7 @@ public class StraightProjectile : MonoBehaviour {
 			GameObject slime;
 
 			// Set the random number equal to a random number between 1 and 6
-			randomNum = Random.Range (1, 7);
+			randomNum = Random.Range (1, 10);
 
 			// CLEAN THIS UP LATER
 
@@ -118,6 +118,18 @@ public class StraightProjectile : MonoBehaviour {
 			}
 
 			if (randomNum == 7) {
+				Debug.Log ("No slime enemy dropped");
+			}
+
+			if (randomNum == 8) {
+				Debug.Log ("No slime enemy dropped");
+			}
+
+			if (randomNum == 9) {
+				Debug.Log ("No slime enemy dropped");
+			}
+
+			if (randomNum == 10) {
 				Debug.Log ("No slime enemy dropped");
 			}
 

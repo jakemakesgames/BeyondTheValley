@@ -21,6 +21,7 @@ TagManager:
   - GameManager
   - Portal
   - PromptText
+  - SlimeBoss
   layers:
   - Default
   - TransparentFX

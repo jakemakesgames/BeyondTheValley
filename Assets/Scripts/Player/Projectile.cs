@@ -87,7 +87,21 @@ public class Projectile : MonoBehaviour {
 			Destroy (particle, 1f);
 			// Destroy the gameObject
 			Destroy(gameObject);
+		}
 
+		if (other.tag == "SlimeBoss") {
+			// Deal Damage to the boss
+			other.GetComponent<SlimeBossHealthController>().TakeDamage(damageAmount);
+			// Add Score
+			gm.AddScore(scoreMultiplier);
+			// Instantaite particle effect
+			GameObject particle = Instantiate(particleEffect, transform.position, Quaternion.identity) as GameObject;
+			// Call the screenshake method
+			shake.CamMiniShake();
+			// Destroy particle effect
+			Destroy(particle, 1f);
+			// Destroy the gameObject
+			Destroy(gameObject);
 		}
 	}
 
