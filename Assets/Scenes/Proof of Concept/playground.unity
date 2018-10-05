@@ -283,7 +283,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4568238253490336, guid: b79bdfa7c0de1234db1625366c329956, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -31.8
+      value: -46.5
       objectReference: {fileID: 0}
     - target: {fileID: 4568238253490336, guid: b79bdfa7c0de1234db1625366c329956, type: 2}
       propertyPath: m_LocalPosition.y
@@ -381,6 +381,21 @@ Prefab:
     - target: {fileID: 1788892026340242, guid: b79bdfa7c0de1234db1625366c329956, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
+        type: 2}
+      propertyPath: grassPuff
+      value: 
+      objectReference: {fileID: 1982962689654054, guid: 446271349b1bd3f4693d804c82d24c22,
+        type: 2}
+    - target: {fileID: 114286654530095134, guid: b79bdfa7c0de1234db1625366c329956,
+        type: 2}
+      propertyPath: grassPuffPos
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651804059133554, guid: b79bdfa7c0de1234db1625366c329956, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b79bdfa7c0de1234db1625366c329956, type: 2}

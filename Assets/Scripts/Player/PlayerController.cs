@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
 	public float movementSpeed;
 	public float maxSpeed;
 
+	public ParticleSystem grassPuff;
+
 	// Keyboard Variables
 	private Vector2 moveVelocity;
 
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour {
 			Vector2 moveInput = new Vector2 (Input.GetAxisRaw ("Hori"), Input.GetAxisRaw ("Vert"));
 			// Set the moveVelocity equal to the moveInput multiplied by the movementSpeed variable (Normalized so the speed is the same in all directions)
 			moveVelocity = moveInput.normalized * movementSpeed;
+
 			#endregion
 
 			#endregion
@@ -202,7 +205,10 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			// Keyboard Move Player
 			rb2D.MovePosition (rb2D.position + moveVelocity * Time.fixedDeltaTime);
-		}
+
+		} 
+
+
 
 		#endregion
 	}
