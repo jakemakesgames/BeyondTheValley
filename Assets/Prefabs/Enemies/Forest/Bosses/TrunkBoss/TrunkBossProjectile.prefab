@@ -9,33 +9,33 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1362437828357858}
+  m_RootGameObject: {fileID: 1670537607306812}
   m_IsPrefabParent: 1
---- !u!1 &1362437828357858
+--- !u!1 &1670537607306812
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4661595780017868}
-  - component: {fileID: 212343364317975000}
-  - component: {fileID: 58941979489868836}
-  - component: {fileID: 114219809003767028}
-  - component: {fileID: 114894600876948526}
+  - component: {fileID: 4072938042240140}
+  - component: {fileID: 212956489713900350}
+  - component: {fileID: 58764195139301352}
+  - component: {fileID: 114716820746962954}
+  - component: {fileID: 114582452341347858}
   m_Layer: 0
-  m_Name: StraightProjectile
+  m_Name: TrunkBossProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4661595780017868
+--- !u!4 &4072938042240140
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1362437828357858}
+  m_GameObject: {fileID: 1670537607306812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
@@ -43,12 +43,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58941979489868836
+--- !u!58 &58764195139301352
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1362437828357858}
+  m_GameObject: {fileID: 1670537607306812}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -57,45 +57,43 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
---- !u!114 &114219809003767028
+  m_Radius: 2
+--- !u!114 &114582452341347858
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1362437828357858}
+  m_GameObject: {fileID: 1670537607306812}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99ada2bb8a085ed4f854458ec38d3123, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  moveSpeed: 80
-  damageAmount: 1
-  projectileEffect: {fileID: 1513945007070804, guid: 4fb247b6e81785943be357834aaf30f1,
-    type: 2}
-  lifeTime: 3
-  isSlimeBall: 0
-  slimeEnemy: {fileID: 0}
-  shake: {fileID: 0}
---- !u!114 &114894600876948526
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1362437828357858}
-  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f21da7113c70c1a4f8e7782f9e1515ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 350
---- !u!212 &212343364317975000
+--- !u!114 &114716820746962954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670537607306812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4826c4652aafecb45b4930d4127207ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 80
+  damageAmount: 1
+  projectileEffect: {fileID: 1513945007070804, guid: 157ce5f5587ebd34597a8a4b7060a2ac,
+    type: 2}
+  player: {fileID: 0}
+  target: {x: 0, y: 0}
+  shake: {fileID: 0}
+--- !u!212 &212956489713900350
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1362437828357858}
+  m_GameObject: {fileID: 1670537607306812}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -124,7 +122,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 900
+  m_SortingOrder: 9999
   m_Sprite: {fileID: 21300000, guid: f6991acdaea26b04aa352a04fbbe4a97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

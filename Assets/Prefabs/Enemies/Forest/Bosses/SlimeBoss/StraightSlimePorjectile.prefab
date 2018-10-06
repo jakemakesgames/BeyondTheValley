@@ -93,7 +93,7 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 80
   damageAmount: 1
-  projectileEffect: {fileID: 1513945007070804, guid: 4fb247b6e81785943be357834aaf30f1,
+  projectileEffect: {fileID: 1513945007070804, guid: df8d8def2416cbe438c73fcfb57a9420,
     type: 2}
   lifeTime: 2
   isSlimeBall: 1
