@@ -84,7 +84,22 @@ public class SlimeBossController : MonoBehaviour {
 			#region PHASE 4 - THE LAST STAND
 			if (bossState == State.lastStand){
 				Debug.Log ("Current State: " + bossState);
+				timeBetweenShots = newTimeBetweenShots;
+				if (Time.time - shootingTimer > timeBetweenShots){
+					GameObject projUP = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, 0.0f));
+					GameObject projUPLEFT = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, 45.0f));
 
+					GameObject projDOWN = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, 180.0f));
+					GameObject projDOWNLEFT = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, 135.0f));
+
+					GameObject projLEFT = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, 90.0f));
+					GameObject projRIGHT = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, 270.0f));
+
+					GameObject projRIGHTUP = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, -45.0f));
+					GameObject projRIGHTDOWN = Instantiate (slimeStraight, transform.position, Quaternion.Euler (0.0f, 0.0f, -135.0f));
+
+					shootingTimer = Time.time;
+				}
 			}
 			#endregion
 	}

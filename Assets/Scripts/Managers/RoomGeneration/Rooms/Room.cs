@@ -22,6 +22,7 @@ public class Room : MonoBehaviour {
 	void Update(){
 		if (enemiesInRoom.Count <= 0) {
 			Debug.Log ("All enemies are dead!");
+
 			if (!portalOpened) {
 				Instantiate (portal, transform.position, Quaternion.identity);
 				portalOpened = true;
