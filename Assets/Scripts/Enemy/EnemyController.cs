@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour {
 	public type enemyType;
 
 	public float speed;
+	public float followRadius;
 
 	[FoldoutGroup("Ranged AI")]
 	[Header ("Variables")]
@@ -178,7 +179,9 @@ public class EnemyController : MonoBehaviour {
 	void AggressiveBehaviour(){
 		// Move the Enemy towards the player
 		if (target != null){
-			transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
+			//if (Vector2.Distance (transform.position, target.position) < followRadius) {
+				transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
+			//}
 		}
 	}
 
@@ -231,6 +234,11 @@ public class EnemyController : MonoBehaviour {
 
 	void HardDestroy(){
 		Destroy (gameObject);
+	}
+
+	void OnDrawGizmosSelected(){
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere (transform.position, followRadius);
 	}
 
 }

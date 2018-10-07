@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
 
-
 	[Header("Temp Intro")]
 	// Temp story panel
 	public GameObject introCanvas;
@@ -25,6 +24,8 @@ public class MenuManager : MonoBehaviour {
 	public GameObject controlsCanvas;
 	public GameObject optionsCanvas;
 	public GameObject quitCanvas;
+
+	public string sceneToPlay;
 
 	void Start(){
 		
@@ -53,6 +54,7 @@ public class MenuManager : MonoBehaviour {
 
 	public void PlayGame(){
 		// Change to Game Scene
+		SceneManager.LoadScene(sceneToPlay);
 	}
 
 	public void Back(){

@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
 	#region COMPONENTS AND VARIABLES
+	private static bool created = false;
 
 	PlayerController playerController;
+	Shake shake;
 
 	[Header("Scoring")]
 	public int playerScore;
@@ -28,14 +30,38 @@ public class GameManager : MonoBehaviour {
 	[SerializeField] private int itemDropAmt;
 	[SerializeField] private int itemDropMax;
 
+	[Header("UI")]
+	// The reference to the Game Over UI
+	public GameObject gameOverUI;
+
+	[Header("Public Variables")]
+	public string retryScene;
+	public string backToMenu;
+
 	#endregion
+
+	void Awake(){
+		if (!created) {
+			DontDestroyOnLoad (this.gameObject);
+			created = true;
+		}
+
+	}
 
 	void Start(){
 		pickups = true;
-
 		// Find a reference to the PlayerController
 		playerController = FindObjectOfType<PlayerController> ();
+		// Set the GameOverUI to false (not visible)
+		gameOverUI.SetActive (false);
+
+
+		gemText = GameObject.FindGameObjectWithTag ("CoinCount").GetComponent<Text>();
+		playerScoreText = GameObject.FindGameObjectWithTag ("PlayerScore").GetComponent<Text>();
+		shake = GetComponentInChildren<Shake> ();
+		shake.camAnim = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Animator>();
 	}
+
 
 	void Update(){
 		UpdateGemText ();
@@ -128,5 +154,21 @@ public class GameManager : MonoBehaviour {
 	public void UpdateScoreText(){
 		// Update the PlayerScoreText
 		playerScoreText.text = playerScore.ToString ();
+	}
+
+	public void GameOver(){
+		Debug.Log ("You Died! Game Over...");
+		// Show the GameOverUI
+		gameOverUI.SetActive(true);
+	}
+
+	public void Retry(){
+		// Reload level 1-1
+		SceneManager.LoadScene(retryScene);
+	}
+
+	public void ReturnToMenu(){
+		// Return to the Menu
+		SceneManager.LoadScene(backToMenu);
 	}
 }

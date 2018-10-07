@@ -155,6 +155,7 @@ MonoBehaviour:
   eS: {fileID: 11400000, guid: 4be5a2686112bb94db186b0127ce7b03, type: 2}
   enemyType: 1
   speed: 0
+  followRadius: 0
   stoppingDistance: 50
   retreatDistance: 40
   startTimeBetweenShots: 1

@@ -22,6 +22,8 @@ TagManager:
   - Portal
   - PromptText
   - SlimeBoss
+  - CoinCount
+  - PlayerScore
   layers:
   - Default
   - TransparentFX

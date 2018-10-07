@@ -14,12 +14,12 @@ public class ObjGeneration : MonoBehaviour {
 		GenerateObject ();
 	}
 
-	void Update(){
-		// If the G key is pressed, reload the scene (test purpose only)
-		if (Input.GetKeyDown (KeyCode.G)) {
-			SceneManager.LoadScene (sceneToLoad);
-		}
-	}
+//	void Update(){
+//		// If the G key is pressed, reload the scene (test purpose only)
+//		if (Input.GetKeyDown (KeyCode.G)) {
+//			SceneManager.LoadScene (sceneToLoad);
+//		}
+//	}
 
 	// This function handles the instantiation of the object
 	void GenerateObject(){

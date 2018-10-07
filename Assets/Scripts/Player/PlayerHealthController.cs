@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerHealthController : MonoBehaviour {
 
+	private GameManager gm;
+
 	#region COMPONENTS AND VARIABLES
 	[Header("UI Components")]
 	// The amount of health the player has
@@ -17,8 +19,7 @@ public class PlayerHealthController : MonoBehaviour {
 	public Sprite fullHeart;
 	// The Sprite of the Empty Heart
 	public Sprite emptyHeart;
-	// The reference to the Game Over UI
-	public GameObject gameOverUI;
+
 	#endregion
 
 	#region BLINKING VARIABLES
@@ -31,8 +32,7 @@ public class PlayerHealthController : MonoBehaviour {
 	#endregion
 
 	void Start(){
-		// Set the GameOverUI to false (not visible)
-		gameOverUI.SetActive (false);
+		gm = GameObject.FindObjectOfType<GameManager> ();
 	}
 
 	void Update(){
@@ -113,11 +113,7 @@ public class PlayerHealthController : MonoBehaviour {
 	#endregion
 
 	void Die(){
-
-		// Show the GameOverUI
-		gameOverUI.SetActive(true);
-		Debug.Log ("You Died!");
-		// Destroy this gameObject -> The player is completely dead
+		gm.GameOver ();
 		Destroy (gameObject);
 	}
 

@@ -7,6 +7,7 @@ public class Room : MonoBehaviour {
 
 	public List<GameObject> enemiesInRoom;
 	public GameObject portal;
+	public GameObject portalSpawnPoint;
 	bool portalOpened;
 	//public string bossLevel;
 
@@ -24,7 +25,7 @@ public class Room : MonoBehaviour {
 			Debug.Log ("All enemies are dead!");
 
 			if (!portalOpened) {
-				Instantiate (portal, transform.position, Quaternion.identity);
+				Instantiate (portal, portalSpawnPoint.transform.position, Quaternion.identity);
 				portalOpened = true;
 			}
 
